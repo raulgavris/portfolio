@@ -1,7 +1,3 @@
-interface Button1Props {
-  children: React.ReactNode
-}
-
 const Button1 = ({ children }: Button1Props) => {
   return (
     <button

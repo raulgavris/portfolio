@@ -1,11 +1,14 @@
 import { useRef } from 'react'
-import HomeSection from './HomeSection'
-import AboutSection from './AboutSection'
-import PortfolioSection from './PortfolioSection'
-import ContactSection from './ContactSection'
+import HomeSection from '@/components/Sections/HomeSection'
+import AboutSection from '@/components/Sections/AboutSection'
+import PortfolioSection from '@/components/Sections/PortfolioSection'
+import ContactSection from '@/components/Sections/ContactSection'
 import useScrollSpy from '@/lib/hooks/useScrollSpy'
-import { SectionElement } from '@/lib/hooks/useScrollSpy'
 import TimelineNavigation from './TimelineNavigation'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import gsap from 'gsap'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const SinglePageApp: React.FC = () => {
   const homeRef = useRef<SectionElement>(null)
@@ -33,7 +36,8 @@ const SinglePageApp: React.FC = () => {
 
   return (
     <div
-      className="h-screen snap-y snap-mandatory overflow-y-scroll"
+      id="scrollerContainer"
+      className="h-screen overflow-y-scroll"
       ref={containerRef}
     >
       <TimelineNavigation

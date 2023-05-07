@@ -1,10 +1,4 @@
-// components/TimelineNavigation.tsx
 import React from 'react'
-
-interface TimelineNavigationProps {
-  activeSection: string | null
-  onCircleClick: (section: string) => void
-}
 
 const TimelineNavigation: React.FC<TimelineNavigationProps> = ({
   activeSection,

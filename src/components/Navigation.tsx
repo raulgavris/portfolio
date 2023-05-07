@@ -18,7 +18,7 @@ const Navigation = () => {
   }, [width])
 
   return width > 770 ? (
-    <div className="sticky left-0 top-0 z-20 flex h-24 flex-row items-center justify-between px-1 dark:bg-rgcolor0 md:px-20">
+    <div className="relative z-20 flex h-24 flex-row items-center justify-between px-1 dark:bg-rgcolor0 md:px-20">
       <div className="item-center flex flex-row items-center justify-center">
         <div
           className="mousehover relative h-14 w-14 transition-all duration-1000 active:scale-110 dark:text-rgcolor2 dark:hover:text-rgcolor6"
@@ -62,7 +62,7 @@ const Navigation = () => {
       )}
       {showNavigation && (
         <>
-          <div className="fixed right-0 top-0 z-20 h-full w-3/6 shadow dark:bg-rgcolor1 sm:w-2/6">
+          <div className="relative z-20 h-full w-3/6 shadow dark:bg-rgcolor1 sm:w-2/6">
             <Hamburger setShowNavigation={setShowNavigation} value={false} />
             <div className="item-center items-left mt-32 flex flex-row justify-center">
               <div className="mousehover relative h-14 w-14 transition-all duration-1000 active:scale-110 dark:text-rgcolor2 dark:hover:text-rgcolor6">

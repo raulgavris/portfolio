@@ -1,9 +1,8 @@
-import React, { RefObject, useEffect, useLayoutEffect, useState } from 'react'
-import { SectionElement } from '@/lib/hooks/useScrollSpy'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import gsap from 'gsap'
-import ProjectShowcase from './ProjectShowcase'
-import PortfolioSelected from './PortfolioSelected'
+import ProjectShowcase from '@/components/ProjectShowcase'
+import PortfolioSelected from '@/components/PortfolioSelected'
 import IonIcon from '@reacticons/ionicons'
 
 let data = [
@@ -89,10 +88,10 @@ let data = [
   },
 ]
 
-const PortfolioSection = React.forwardRef<
-  SectionElement,
-  PortfolioSectionProps
->(({ containerRef, portfolioRef }: PortfolioSectionProps) => {
+const PortfolioSection = ({
+  containerRef,
+  portfolioRef,
+}: PortfolioSectionProps) => {
   const router = useRouter()
 
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -128,30 +127,30 @@ const PortfolioSection = React.forwardRef<
     setCurrentIndex(index)
   }
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context((_self) => {
-      gsap.fromTo(
-        portfolioRef.current,
-        {
-          opacity: 0,
-          x: -1000,
-        },
-        {
-          scrollTrigger: {
-            trigger: portfolioRef.current,
-            scroller: '.hello',
-            toggleActions: 'play complete restart reverse',
-          },
-          duration: 2,
-          delay: 0,
-          opacity: 1,
-          x: 0,
-          ease: 'Power3.easeOut',
-        },
-      )
-    })
-    return () => ctx.revert()
-  }, [])
+  // useEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     gsap.fromTo(
+  //       portfolioRef.current,
+  //       {
+  //         opacity: 0,
+  //         x: -1000,
+  //       },
+  //       {
+  //         scrollTrigger: {
+  //           trigger: portfolioRef.current,
+  //           scroller: containerRef.current,
+  //           toggleActions: 'play complete restart reverse',
+  //         },
+  //         duration: 2,
+  //         delay: 1,
+  //         opacity: 1,
+  //         x: 0,
+  //         ease: 'Power3.easeOut',
+  //       },
+  //     )
+  //   })
+  //   return () => ctx.revert()
+  // }, [containerRef, portfolioRef])
 
   useEffect(() => {
     const targetElement = document.getElementById('portfolio')
@@ -163,12 +162,12 @@ const PortfolioSection = React.forwardRef<
         })
       }
     }
-  }, [])
+  }, [containerRef, router.route])
 
   return (
     <div
       id="portfolio"
-      className="h-screen w-screen snap-start"
+      className="h-screen w-screen"
       ref={portfolioRef}
       data-path="/portfolio"
     >
@@ -227,7 +226,7 @@ const PortfolioSection = React.forwardRef<
       </div>
     </div>
   )
-})
+}
 
 PortfolioSection.displayName = 'portfolio'
 

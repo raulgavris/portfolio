@@ -1,10 +1,5 @@
 import { useEffect, useState, RefObject } from 'react'
 
-export interface SectionElement extends HTMLElement {
-  getAttribute: (name: string) => string
-  align: string
-}
-
 const useScrollSpy = (sectionRefs: RefObject<SectionElement>[]) => {
   const [activeSection, setActiveSection] = useState<string | null>('')
 

@@ -1,8 +1,3 @@
-interface Button2Props {
-  children: React.ReactNode
-  isActive?: boolean
-}
-
 const Button2 = ({ children, isActive }: Button2Props) => {
   return (
     <button
