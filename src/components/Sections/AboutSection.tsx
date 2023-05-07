@@ -117,7 +117,7 @@ const AboutSection = ({ containerRef, aboutRef }: AboutSectionProps) => {
       {showClients && (
         <ClientsModal setShowClients={setShowClients} pageRef={clientsModal} />
       )}
-      <div className="grid h-full w-full grid-cols-6 grid-rows-6">
+      <div className="grid h-full w-full max-w-6xl grid-cols-6 grid-rows-6">
         <div className="col-start-1 col-end-2 row-start-4 row-end-5">
           <div className="flex -rotate-90 flex-row items-center justify-center space-x-10 text-center text-xs dark:text-rgcolor2">
             <InfoItem

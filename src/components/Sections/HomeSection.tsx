@@ -9,10 +9,6 @@ interface HomeSectionProps {
 const HomeSection = ({ containerRef, homeRef }: HomeSectionProps) => {
   const router = useRouter()
 
-  const handleClick = () => {
-    // scrollToId('about')
-  }
-
   useEffect(() => {
     const targetElement = document.getElementById('home')
     if (targetElement) {
@@ -32,7 +28,7 @@ const HomeSection = ({ containerRef, homeRef }: HomeSectionProps) => {
       ref={homeRef}
       data-path="/home"
     >
-      <div className="ml-10 grid h-screen grid-cols-6 grid-rows-6 md:ml-52">
+      <div className="mx-auto ml-10 grid h-full w-full max-w-6xl grid-cols-6 grid-rows-6 md:grid-cols-2">
         <div className="col-start-1 col-end-5 row-start-2 text-[15px]">
           <div className="relative flex h-full w-full flex-col items-start justify-start space-y-10">
             <img
@@ -60,7 +56,6 @@ const HomeSection = ({ containerRef, homeRef }: HomeSectionProps) => {
               contracts in Solidity.
             </div>
             <button
-              onClick={handleClick}
               type="button"
               className="button-3d mousehover relative z-50 px-4 py-2 text-base font-medium leading-6 focus:outline-none dark:bg-rgcolor1 dark:text-rgcolor2 dark:hover:bg-rgcolor0 dark:hover:text-rgcolor6"
             >

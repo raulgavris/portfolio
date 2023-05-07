@@ -19,6 +19,7 @@ const ProjectShowcase = ({
         <div className="absolute left-16 top-[15%] h-4/6 w-1/2 rounded shadow drop-shadow dark:bg-rgcolor6">
           <a className="mousehover h-full w-full" href={projectUrl}>
             <img
+              alt="imageshowcase"
               className="h-full w-full rounded grayscale transition-all duration-200 hover:grayscale-0"
               src={imageUrl}
             />

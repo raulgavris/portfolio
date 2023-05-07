@@ -41,6 +41,8 @@ export default function App({ Component, pageProps }: AppProps) {
             }}
           >
             <BaseLayout>
+              <div className="cursor"></div>
+              <div className="cursor2"></div>
               <Component {...pageProps} />
             </BaseLayout>
           </motion.div>

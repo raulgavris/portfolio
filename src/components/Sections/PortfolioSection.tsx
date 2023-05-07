@@ -34,7 +34,7 @@ let data = [
     technologies: ['Perl', 'AWS', 'MySQL'],
     gitLink: 'https://ipost.com',
     projectUrl: 'https://ipost.com',
-    imageUrl: 'ipost-showcase.png',
+    imageUrl: '/ipost-showcase.png',
   },
   {
     id: 3,
@@ -171,7 +171,7 @@ const PortfolioSection = ({
       ref={portfolioRef}
       data-path="/portfolio"
     >
-      <div className="grid h-full w-full grid-cols-12 grid-rows-12">
+      <div className="max-w-9xl grid h-full w-full grid-cols-12 grid-rows-12">
         <div className="col-start-2 col-end-6 row-start-3 row-end-3">
           <div className="flex flex-row items-start justify-start">
             <div className="ml-10 text-3xl dark:text-rgcolor2">

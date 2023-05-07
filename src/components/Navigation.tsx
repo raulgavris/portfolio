@@ -32,7 +32,8 @@ const Navigation = () => {
           className="mousehover ml-4 mt-2 text-2xl transition-all duration-200 hover:-rotate-6 hover:skew-x-3 hover:scale-110 active:scale-95  dark:text-rgcolor2"
           // onClick={handleThemeSwitch}
         >
-          <IonIcon name="moon-outline"></IonIcon>
+          {/* <IonIcon name="moon-outline"></IonIcon> */}
+          <IonIcon name="sunny-outline"></IonIcon>
           {/* {theme === 'dark' && <IonIcon name="sunny-outline"></IonIcon>} */}
         </div>
       </div>
@@ -74,7 +75,7 @@ const Navigation = () => {
                 className="mousehover ml-4 mt-2 text-2xl transition-all duration-200 hover:-rotate-6 hover:skew-x-3 hover:scale-110 active:scale-95  dark:text-rgcolor2"
                 // onClick={handleThemeSwitch}
               >
-                <IonIcon name="moon-outline"></IonIcon>
+                <IonIcon name="sunny-outline"></IonIcon>
                 {/* {theme === 'dark' && <IonIcon name="sunny-outline"></IonIcon>} */}
               </div>
             </div>

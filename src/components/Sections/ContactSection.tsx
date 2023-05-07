@@ -38,7 +38,7 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
       ref={contactRef}
       data-path="/contact"
     >
-      <div className="mx-auto grid max-w-6xl grid-cols-1 px-6 md:grid-cols-2 md:divide-x lg:px-8">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 px-6 md:grid-cols-2 md:divide-x lg:px-8">
         <div className="py-6 md:px-6 md:py-0">
           <h1 className="text-4xl font-bold">Let's connect!</h1>
           <p className="pb-4 pt-2">
