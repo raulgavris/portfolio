@@ -4,6 +4,20 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        raulroboto: ['Roboto', 'sans-serif'],
+        raulmono: ['Space Mono', 'monospace'],
+      },
+      textShadow: {
+        text: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      },
+      boxShadow: {
+        basicInset: 'inset 0px 4px 4px rgba(0, 0, 0, 0.25)',
+        basic: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      },
+      dropShadow: {
+        basic: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      },
       screens: {
         xxs: '270px',
         xs: '375px',
@@ -18,14 +32,14 @@ module.exports = {
         '2xl': '1536px',
       },
       colors: {
-        rgcolor0: '#1d2021',
-        rgcolor1: '#282828',
-        rgcolor2: '#fbf1c7',
-        rgcolor3: '#458588',
-        rgcolor4: '#cc241d',
-        rgcolor5: '#98971a',
-        rgcolor6: '#f5f5f5',
-        rgcolor7: '#d79921',
+        darkBlack: '#1d2021',
+        darkGray: '#282828',
+        lightGray: '#fbf1c7',
+        teal: '#458588',
+        red: '#cc241d',
+        softGreen: '#98971a',
+        offWhite: '#f5f5f5',
+        softOrange: '#d79921',
       },
     },
     gridTemplateColumns: {
@@ -81,5 +95,6 @@ module.exports = {
   plugins: [
     require('tailwind-scrollbar-hide'),
     require('tailwindcss-dark-mode')(),
+    require('tailwindcss-textshadow'),
   ],
 }

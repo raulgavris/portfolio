@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Button1 from '@/components/Button1'
+import CopyRight from '@/components/Svg/copyright.svg'
 
 const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
   const router = useRouter()
@@ -63,14 +64,14 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="mr-2 h-5 w-5 group-hover:fill-rgcolor3 sm:mr-6"
+                className="mr-2 h-5 w-5 group-hover:fill-teal sm:mr-6"
               >
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
               </svg>
               <a
                 href="mailto:rg.raulgavris@gmail.com"
-                className="mousehover transition-all duration-150 group-hover:translate-x-2 group-hover:text-rgcolor3"
+                className="mousehover transition-all duration-150 group-hover:translate-x-2 group-hover:text-teal"
               >
                 rg.raulgavris@gmail.com
               </a>
@@ -91,7 +92,7 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
               name="name"
               type="text"
               placeholder="Your Name"
-              className="peer relative w-full rounded-md p-3 placeholder-transparent drop-shadow focus:outline-none focus:ring focus:ring-rgcolor3 focus:ring-opacity-75 dark:bg-rgcolor1"
+              className="peer relative w-full rounded-md p-3 placeholder-transparent drop-shadow focus:outline-none focus:ring focus:ring-teal focus:ring-opacity-75 dark:bg-darkGray"
             />
             <label
               htmlFor="name"
@@ -110,7 +111,7 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
               name="email"
               type="email"
               placeholder="Your Email"
-              className="peer relative w-full rounded-md p-3 placeholder-transparent drop-shadow focus:outline-none focus:ring focus:ring-rgcolor3 focus:ring-opacity-75 dark:bg-rgcolor1"
+              className="peer relative w-full rounded-md p-3 placeholder-transparent drop-shadow focus:outline-none focus:ring focus:ring-teal focus:ring-opacity-75 dark:bg-darkGray"
             />
             <label
               htmlFor="email"
@@ -127,11 +128,11 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
               }}
               placeholder="Message"
               rows={8}
-              className="peer block w-full resize-none rounded-md p-3 placeholder-transparent drop-shadow focus:outline-none focus:ring focus:ring-rgcolor3 focus:ring-opacity-75 dark:bg-rgcolor1"
+              className="peer block w-full resize-none rounded-md p-3 placeholder-transparent drop-shadow focus:outline-none focus:ring focus:ring-teal focus:ring-opacity-75 dark:bg-darkGray"
             ></textarea>
             <label
               htmlFor="email"
-              className="pointer-events-none absolute -top-7 left-2 text-sm opacity-100 transition-all duration-500 peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:text-lg peer-placeholder-shown:opacity-50"
+              className="pointer-events-none absolute -top-7 left-2 text-sm opacity-100 transition-all duration-500 placeholder:text-shadow-text peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:text-lg peer-placeholder-shown:opacity-50"
             >
               Message
             </label>
@@ -140,6 +141,11 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
             <Button1>SUBMIT</Button1>
           </div>
         </form>
+      </div>
+      <div className="flex flex-row items-center justify-center gap-4 font-raulmono text-[14px] font-bold leading-[21px] text-lightGray drop-shadow-basic text-shadow-text">
+        <span>Copyright</span>
+        <CopyRight />
+        <span>2023 Raul Gavriș - Full Stack Engineer</span>
       </div>
     </div>
   )

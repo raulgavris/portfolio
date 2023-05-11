@@ -28,27 +28,31 @@ const HomeSection = ({ containerRef, homeRef }: HomeSectionProps) => {
       ref={homeRef}
       data-path="/home"
     >
-      <div className="mx-auto ml-10 grid h-full w-full max-w-6xl grid-cols-6 grid-rows-6 md:grid-cols-2">
-        <div className="col-start-1 col-end-5 row-start-2 text-[15px]">
-          <div className="relative flex h-full w-full flex-col items-start justify-start space-y-10">
+      <div className="mx-auto mt-20 h-full w-full max-w-6xl">
+        <div className="relative flex h-full w-full flex-col items-start justify-start">
+          <div className="relative flex flex-row">
+            <div className="flex flex-col">
+              <div className="font-raulmono text-[25px] font-normal leading-[37px] text-shadow-text dark:text-red">
+                Hi, I'm
+              </div>
+              <div className="relative text-[96px] font-medium leading-[112px] text-shadow-text dark:text-offWhite">
+                Raul Gavriș
+              </div>
+            </div>
             <img
               alt="heroLarge"
               src="/hero-large.png"
-              className="absolute left-40 top-8 w-20 rounded-full shadow xs:left-[250px] md:left-[450px] md:w-32 xlg:left-[525px]"
+              className="absolute -bottom-10 -right-52 h-40 rounded-[25px] shadow-basic"
             />
-            <div className="relative text-5xl dark:text-rgcolor6 md:text-8xl">
-              <div className="absolute -top-6 text-[15px] dark:text-rgcolor4 md:-top-2 md:left-4">
-                Hi, I'm
-              </div>
-              Raul Gavriș
-            </div>
-            <div className="relative ml-1 text-4xl dark:text-rgcolor2 md:text-7xl">
-              <div className="absolute -left-1 -top-10 text-[15px] dark:text-rgcolor4 md:-top-4 md:left-2">
-                and I'm a
-              </div>
-              Full Stack Engineer
-            </div>
-            <div className="relative ml-1 max-w-2xl text-sm dark:text-rgcolor2 md:text-lg">
+          </div>
+          <div className="font-raulmono text-[25px] font-normal leading-[37px] text-shadow-text dark:text-red">
+            and I'm a
+          </div>
+          <div className="relative text-[96px] font-medium leading-[112px] -tracking-[0.065em] text-shadow-text dark:text-lightGray">
+            Full Stack Engineer
+          </div>
+          <div className="flex flex-col items-start justify-start gap-4">
+            <div className="relative max-w-2xl text-[20px] font-light leading-[23px] dark:text-lightGray">
               I'm a software engineer specializing in building designing
               exceptional digital experiences. Currently, I'm more focused on
               improving my skils of understanding and implementing complex
@@ -57,9 +61,9 @@ const HomeSection = ({ containerRef, homeRef }: HomeSectionProps) => {
             </div>
             <button
               type="button"
-              className="button-3d mousehover relative z-50 px-4 py-2 text-base font-medium leading-6 focus:outline-none dark:bg-rgcolor1 dark:text-rgcolor2 dark:hover:bg-rgcolor0 dark:hover:text-rgcolor6"
+              className="button-3d mousehover relative z-50 flex h-[67px] w-[271px] flex-row items-center justify-center border-[2px] border-darkBlack font-raulmono text-[18px] font-normal leading-[27px] shadow-basic focus:outline-none dark:bg-darkGray dark:text-lightGray"
             >
-              <div className="background-3d z-0 rounded-md dark:bg-rgcolor2"></div>
+              <div className="background-3d z-0 rounded-md dark:bg-lightGray"></div>
               <span>Explore this website</span>
             </button>
           </div>

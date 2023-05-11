@@ -174,7 +174,7 @@ const PortfolioSection = ({
       <div className="max-w-9xl grid h-full w-full grid-cols-12 grid-rows-12">
         <div className="col-start-2 col-end-6 row-start-3 row-end-3">
           <div className="flex flex-row items-start justify-start">
-            <div className="ml-10 text-3xl dark:text-rgcolor2">
+            <div className="ml-10 text-3xl dark:text-lightGray">
               Projects I worked on
             </div>
           </div>
@@ -194,7 +194,7 @@ const PortfolioSection = ({
               prevSlide()
             }}
           >
-            <div className="mousehover text-3xl transition-all duration-200 hover:scale-125 active:scale-100 dark:text-rgcolor2">
+            <div className="mousehover text-3xl transition-all duration-200 hover:scale-125 active:scale-100 dark:text-lightGray">
               <IonIcon name="chevron-back-outline"></IonIcon>
             </div>
           </button>
@@ -204,7 +204,7 @@ const PortfolioSection = ({
               nextSlide()
             }}
           >
-            <div className="mousehover text-3xl transition-all duration-200 hover:scale-125 active:scale-100 dark:text-rgcolor2">
+            <div className="mousehover text-3xl transition-all duration-200 hover:scale-125 active:scale-100 dark:text-lightGray">
               <IonIcon name="chevron-forward-outline"></IonIcon>
             </div>
           </button>

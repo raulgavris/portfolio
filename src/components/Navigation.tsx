@@ -3,8 +3,8 @@ import Link from 'next/link'
 import Button2 from './Button2'
 import Button1 from './Button1'
 import Hamburger from './Hamburger'
-import IonIcon from '@reacticons/ionicons'
 import { useWindowSize } from '@/lib/hooks/useWindowSize'
+import Sun from '@/components/Svg/sun.svg'
 
 const Navigation = () => {
   const [showNavigation, setShowNavigation] = useState(false)
@@ -18,10 +18,10 @@ const Navigation = () => {
   }, [width])
 
   return width > 770 ? (
-    <div className="relative z-20 flex h-24 flex-row items-center justify-between px-1 dark:bg-rgcolor0 md:px-20">
+    <div className="relative z-20 mx-auto flex h-24 max-w-[1500px] flex-row items-center justify-between px-1 dark:bg-darkBlack md:px-20">
       <div className="item-center flex flex-row items-center justify-center">
         <div
-          className="mousehover relative h-14 w-14 transition-all duration-1000 active:scale-110 dark:text-rgcolor2 dark:hover:text-rgcolor6"
+          className="mousehover relative h-14 w-14 transition-all duration-1000 active:scale-110 dark:text-lightGray dark:hover:text-offWhite"
           // onClick={handleChangeDimension}
         >
           <span className="pointer-events-none absolute left-[23px] top-4">
@@ -29,12 +29,10 @@ const Navigation = () => {
           </span>
         </div>
         <div
-          className="mousehover ml-4 mt-2 text-2xl transition-all duration-200 hover:-rotate-6 hover:skew-x-3 hover:scale-110 active:scale-95  dark:text-rgcolor2"
+          className="mousehover ml-4 mt-2 text-2xl transition-all duration-200 hover:-rotate-6 hover:skew-x-3 hover:scale-110 active:scale-95  dark:text-lightGray"
           // onClick={handleThemeSwitch}
         >
-          {/* <IonIcon name="moon-outline"></IonIcon> */}
-          <IonIcon name="sunny-outline"></IonIcon>
-          {/* {theme === 'dark' && <IonIcon name="sunny-outline"></IonIcon>} */}
+          <Sun />
         </div>
       </div>
 
@@ -63,20 +61,19 @@ const Navigation = () => {
       )}
       {showNavigation && (
         <>
-          <div className="relative z-20 h-full w-3/6 shadow dark:bg-rgcolor1 sm:w-2/6">
+          <div className="relative z-20 h-full w-3/6 shadow dark:bg-darkGray sm:w-2/6">
             <Hamburger setShowNavigation={setShowNavigation} value={false} />
             <div className="item-center items-left mt-32 flex flex-row justify-center">
-              <div className="mousehover relative h-14 w-14 transition-all duration-1000 active:scale-110 dark:text-rgcolor2 dark:hover:text-rgcolor6">
+              <div className="mousehover relative h-14 w-14 transition-all duration-1000 active:scale-110 dark:text-lightGray dark:hover:text-offWhite">
                 <span className="pointer-events-none absolute left-[23px] top-4">
                   R
                 </span>
               </div>
               <div
-                className="mousehover ml-4 mt-2 text-2xl transition-all duration-200 hover:-rotate-6 hover:skew-x-3 hover:scale-110 active:scale-95  dark:text-rgcolor2"
+                className="mousehover ml-4 mt-2 text-2xl transition-all duration-200 hover:-rotate-6 hover:skew-x-3 hover:scale-110 active:scale-95  dark:text-lightGray"
                 // onClick={handleThemeSwitch}
               >
-                <IonIcon name="sunny-outline"></IonIcon>
-                {/* {theme === 'dark' && <IonIcon name="sunny-outline"></IonIcon>} */}
+                <Sun />
               </div>
             </div>
             <div className="flex flex-col items-center justify-center space-y-10 p-10">

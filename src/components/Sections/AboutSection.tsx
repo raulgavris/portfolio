@@ -15,7 +15,7 @@ const InfoItem = ({
     onClick={onClick}
     className={`${className} flex flex-row items-center justify-center space-x-3 xxs:text-[8px] sm:flex-col sm:space-x-0 md:text-xs`}
   >
-    <span className="dark:text-rgcolor4">
+    <span className="dark:text-red">
       <IonIcon name={`${icon}`}></IonIcon>
     </span>
     <div>{title}</div>
@@ -119,7 +119,7 @@ const AboutSection = ({ containerRef, aboutRef }: AboutSectionProps) => {
       )}
       <div className="grid h-full w-full max-w-6xl grid-cols-6 grid-rows-6">
         <div className="col-start-1 col-end-2 row-start-4 row-end-5">
-          <div className="flex -rotate-90 flex-row items-center justify-center space-x-10 text-center text-xs dark:text-rgcolor2">
+          <div className="flex -rotate-90 flex-row items-center justify-center space-x-10 text-center text-xs dark:text-lightGray">
             <InfoItem
               className=""
               icon="information-circle-outline"
@@ -141,9 +141,9 @@ const AboutSection = ({ containerRef, aboutRef }: AboutSectionProps) => {
             />
           </div>
         </div>
-        <div className="col-start-2 col-end-6 row-start-2 row-end-6 dark:bg-rgcolor0">
+        <div className="col-start-2 col-end-6 row-start-2 row-end-6 dark:bg-darkBlack">
           <div className="items-left :space-x-4 relative flex flex-col justify-start space-x-0 sm:flex-row mlg:space-x-20 lg:space-x-16 xl:space-x-32 2xl:space-x-40">
-            <div className="items-left relative z-30 flex flex-col justify-center space-y-4 dark:text-rgcolor6">
+            <div className="items-left relative z-30 flex flex-col justify-center space-y-4 dark:text-offWhite">
               <div className="text-3xl">About Me</div>
               <div className="w-52 text-xs sm:w-96 sm:text-sm">
                 I am a Full Stack Engineer with 4+ years of experience. I use my
@@ -160,32 +160,29 @@ const AboutSection = ({ containerRef, aboutRef }: AboutSectionProps) => {
               <div>Some of my skills:</div>
               <div className="ml-2 w-52 flex-col space-y-2 text-xs sm:w-96 sm:text-sm">
                 <div>
-                  <span className="dark:text-rgcolor4">•</span> ExpressJS /
-                  NestJS
+                  <span className="dark:text-red">•</span> ExpressJS / NestJS
                 </div>
                 <div>
-                  <span className="dark:text-rgcolor4">•</span> React.js /
-                  Next.js
+                  <span className="dark:text-red">•</span> React.js / Next.js
                 </div>
                 <div>
-                  <span className="dark:text-rgcolor4">•</span> Modern
-                  Javascript with Typescript
+                  <span className="dark:text-red">•</span> Modern Javascript
+                  with Typescript
                 </div>
                 <div>
-                  <span className="dark:text-rgcolor4">•</span> SOLID Principles
-                  of programming(OOP, Design Patterns, Algorithms, Data
-                  Structures)
+                  <span className="dark:text-red">•</span> SOLID Principles of
+                  programming(OOP, Design Patterns, Algorithms, Data Structures)
                 </div>
                 <div>
-                  <span className="dark:text-rgcolor4">•</span> MySQL,
-                  PostgreSQL, Redis, RabbitMQ
+                  <span className="dark:text-red">•</span> MySQL, PostgreSQL,
+                  Redis, RabbitMQ
                 </div>
                 <div>
-                  <span className="dark:text-rgcolor4">•</span> Domain-Driven
-                  Design (DDD) / CQRS
+                  <span className="dark:text-red">•</span> Domain-Driven Design
+                  (DDD) / CQRS
                 </div>
                 <div>
-                  <span className="dark:text-rgcolor4">•</span> Docker /
+                  <span className="dark:text-red">•</span> Docker /
                   Microservices / Event-Driven Architectures
                 </div>
               </div>
@@ -201,11 +198,11 @@ const AboutSection = ({ containerRef, aboutRef }: AboutSectionProps) => {
               </div>
               <div
                 ref={box1}
-                className="absolute -bottom-4 -left-4 z-10 h-[550px] w-[300px] border-2 opacity-0 dark:border-rgcolor2 dark:bg-rgcolor1 xxs:ml-2 sm:-bottom-4 sm:left-20 sm:z-0 sm:h-[500px] sm:w-[350px]"
+                className="absolute -bottom-4 -left-4 z-10 h-[550px] w-[300px] border-2 opacity-0 dark:border-lightGray dark:bg-darkGray xxs:ml-2 sm:-bottom-4 sm:left-20 sm:z-0 sm:h-[500px] sm:w-[350px]"
               ></div>
               <div
                 ref={box2}
-                className="absolute bottom-0  left-10 z-0 h-[500px] w-[350px] border-2 opacity-0 dark:border-rgcolor2 dark:bg-rgcolor1"
+                className="absolute bottom-0  left-10 z-0 h-[500px] w-[350px] border-2 opacity-0 dark:border-lightGray dark:bg-darkGray"
               ></div>
             </div>
           </div>
