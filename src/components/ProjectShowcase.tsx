@@ -1,4 +1,4 @@
-import IonIcon from '@reacticons/ionicons'
+import { OpenSvg, GitSvg } from './Svg'
 
 const ProjectShowcase = ({
   projectName,
@@ -13,19 +13,19 @@ const ProjectShowcase = ({
   return (
     <>
       <div className="relative h-full w-full">
-        <div className="absolute left-16 top-[8%] text-xl dark:text-offWhite">
+        <div className="absolute left-6 top-[8%] text-2xl dark:text-offWhite">
           {projectName}
         </div>
-        <div className="absolute left-16 top-[15%] h-4/6 w-1/2 rounded shadow drop-shadow dark:bg-offWhite">
+        <div className="absolute left-16 top-[15%] h-4/6 w-1/2">
           <a className="mousehover h-full w-full" href={projectUrl}>
             <img
               alt="imageshowcase"
-              className="h-full w-full rounded grayscale transition-all duration-200 hover:grayscale-0"
+              className="h-full w-full rounded-[10px] shadow-basic drop-shadow-basic grayscale transition-all duration-200 hover:grayscale-0"
               src={imageUrl}
             />
           </a>
         </div>
-        <div className="absolute right-16 top-[30%] h-auto w-1/2 rounded p-10 text-sm shadow drop-shadow dark:bg-teal dark:text-offWhite">
+        <div className="absolute right-16 top-[30%] h-auto max-h-[300px] w-1/2 rounded-[10px] p-10 text-sm shadow-basic drop-shadow-basic dark:bg-teal dark:text-offWhite">
           {newDescription.map((item) => {
             if (item) {
               return (
@@ -35,24 +35,31 @@ const ProjectShowcase = ({
               )
             }
           })}
-          <div className="absolute right-16 top-[105%] flex flex-row space-x-10 text-xs dark:text-lightGray">
+          <div className="absolute right-6 top-full mt-4 flex w-96 flex-row flex-wrap items-center justify-end gap-10 text-xs dark:text-lightGray">
             {technologies.map((item) => {
-              return <div key={item}>{item}</div>
+              return (
+                <div
+                  className="font-raulmono font-bold text-shadow-text"
+                  key={item}
+                >
+                  {item}
+                </div>
+              )
             })}
-          </div>
-          <div className="absolute right-16 top-[120%] flex flex-row space-x-10 text-lg dark:text-lightGray">
-            <a
-              href={gitLink}
-              className="mousehover opacity-90 transition-all duration-200 hover:scale-125 hover:cursor-pointer hover:opacity-100 active:scale-100"
-            >
-              <IonIcon name="git-branch-outline"></IonIcon>
-            </a>
-            <a
-              href={projectUrl}
-              className="mousehover opacity-90 transition-all duration-200 hover:scale-125 hover:cursor-pointer hover:opacity-100 active:scale-100"
-            >
-              <IonIcon name="open-outline"></IonIcon>
-            </a>
+            <div className="absolute right-0 top-10 flex flex-row gap-10 text-lg dark:text-lightGray">
+              <a
+                href={gitLink}
+                className="mousehover opacity-90 transition-all duration-200 hover:scale-125 hover:cursor-pointer hover:opacity-100 active:scale-100"
+              >
+                <GitSvg />
+              </a>
+              <a
+                href={projectUrl}
+                className="mousehover opacity-90 transition-all duration-200 hover:scale-125 hover:cursor-pointer hover:opacity-100 active:scale-100"
+              >
+                <OpenSvg />
+              </a>
+            </div>
           </div>
         </div>
       </div>

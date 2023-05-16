@@ -5,8 +5,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        raulroboto: ['Roboto', 'sans-serif'],
-        raulmono: ['Space Mono', 'monospace'],
+        raulroboto: ['var(--font-roboto)'],
+        raulmono: ['var(--font-spacemono)'],
       },
       textShadow: {
         text: '0px 4px 4px rgba(0, 0, 0, 0.25)',

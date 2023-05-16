@@ -22,7 +22,7 @@ const ClientsModal = ({ pageRef, setShowClients }) => {
         ref={pageRef}
         className="absolute left-1/4 top-32 z-40 h-4/6 w-3/6 overflow-hidden rounded-md bg-white px-6 py-6 shadow-2xl drop-shadow-2xl scrollbar-hide xxs:overflow-y-scroll"
       >
-        <div className="mt-6 flex flex-row flex-wrap items-stretch justify-center space-x-3 xsm:space-x-10">
+        <div className="mt-6 flex flex-row flex-wrap items-stretch justify-center gap-3 xsm:gap-10">
           <a href="https://devnest.ro">
             <DevNest className="h-20 w-20 opacity-50 grayscale transition-all duration-200 hover:opacity-100 hover:grayscale-0 xxs:m-0 xsm:h-40 xsm:w-56" />
           </a>

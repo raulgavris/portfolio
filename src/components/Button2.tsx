@@ -1,8 +1,8 @@
 const Button2 = ({ children, isActive }: Button2Props) => {
   return (
     <button
-      className={`btn group flex items-center bg-transparent p-1 px-1 text-sm
-              font-extralight tracking-widest dark:text-lightGray dark:group-hover:text-offWhite`}
+      className={`btn mousehover group flex items-center bg-transparent p-1 px-1
+              text-sm font-extralight tracking-widest dark:text-lightGray dark:group-hover:text-offWhite`}
     >
       <span
         className={`${

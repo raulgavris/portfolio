@@ -14,7 +14,7 @@ const HomeSection = ({ containerRef, homeRef }: HomeSectionProps) => {
     if (targetElement) {
       if (router.route.includes(targetElement.id)) {
         containerRef?.current.scrollTo({
-          top: targetElement.offsetTop,
+          top: 0,
           behavior: 'auto',
         })
       }
@@ -28,8 +28,8 @@ const HomeSection = ({ containerRef, homeRef }: HomeSectionProps) => {
       ref={homeRef}
       data-path="/home"
     >
-      <div className="mx-auto mt-20 h-full w-full max-w-6xl">
-        <div className="relative flex h-full w-full flex-col items-start justify-start">
+      <div className="mx-auto h-5/6 w-full max-w-6xl">
+        <div className="relative flex h-full w-full flex-col items-start justify-center">
           <div className="relative flex flex-row">
             <div className="flex flex-col">
               <div className="font-raulmono text-[25px] font-normal leading-[37px] text-shadow-text dark:text-red">
@@ -42,7 +42,7 @@ const HomeSection = ({ containerRef, homeRef }: HomeSectionProps) => {
             <img
               alt="heroLarge"
               src="/hero-large.png"
-              className="absolute -bottom-10 -right-52 h-40 rounded-[25px] shadow-basic"
+              className="mousehover absolute -bottom-10 -right-52 z-50 h-40 rounded-[25px] opacity-80 shadow-basic transition-all duration-300 hover:rounded-none hover:opacity-100 hover:shadow-none"
             />
           </div>
           <div className="font-raulmono text-[25px] font-normal leading-[37px] text-shadow-text dark:text-red">
@@ -63,7 +63,7 @@ const HomeSection = ({ containerRef, homeRef }: HomeSectionProps) => {
               type="button"
               className="button-3d mousehover relative z-50 flex h-[67px] w-[271px] flex-row items-center justify-center border-[2px] border-darkBlack font-raulmono text-[18px] font-normal leading-[27px] shadow-basic focus:outline-none dark:bg-darkGray dark:text-lightGray"
             >
-              <div className="background-3d z-0 rounded-md dark:bg-lightGray"></div>
+              <div className="background-3d z-0 rounded-md font-raulmono dark:bg-lightGray"></div>
               <span>Explore this website</span>
             </button>
           </div>

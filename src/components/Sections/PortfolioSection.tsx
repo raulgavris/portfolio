@@ -15,7 +15,7 @@ let data = [
                   The biggest challenge on this project was finding the way in which microservices are communicating with each other and with other tools like
                   RabbitMQ or Kibana and navigate through the code of each microservice until finding the problem;
                   I was maintaining over 30 microservices with dependencies in each other and I created 2 new ones;`,
-    technologies: ['NodeJS', 'ReactJS', 'Docker', 'Kubernetes', 'Nginx'],
+    technologies: ['NodeJS', 'ReactJS', 'Docker', 'Kubernetes'],
     gitLink: 'https://tes.com',
     projectUrl: 'https://tes.com',
     imageUrl: '/tes-showcase.png',
@@ -174,12 +174,12 @@ const PortfolioSection = ({
       <div className="max-w-9xl grid h-full w-full grid-cols-12 grid-rows-12">
         <div className="col-start-2 col-end-6 row-start-3 row-end-3">
           <div className="flex flex-row items-start justify-start">
-            <div className="ml-10 text-3xl dark:text-lightGray">
+            <div className="ml-10 font-raulmono text-3xl dark:text-lightGray">
               Projects I worked on
             </div>
           </div>
         </div>
-        <div className="relative col-start-2 col-end-11 row-start-3 row-end-12">
+        <div className="relative col-start-2 col-end-11 row-start-3 row-end-12 ml-10">
           <ProjectShowcase
             projectName={data[currentIndex].name}
             imageUrl={data[currentIndex].imageUrl}
@@ -209,7 +209,7 @@ const PortfolioSection = ({
             </div>
           </button>
         </div>
-        <div className="bottom-2 left-1/2 col-start-6 col-end-7 row-start-11 row-end-12 flex flex-row items-center justify-center space-x-3">
+        <div className="bottom-2 left-1/2 col-start-6 col-end-7 row-start-11 row-end-12 flex flex-row items-center justify-center gap-3">
           {data.map((item) => {
             return (
               <div

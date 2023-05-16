@@ -1,10 +1,27 @@
 import Head from 'next/head'
+import { Roboto, Space_Mono } from 'next/font/google'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import { ThemeProvider } from 'next-themes'
 import { AnimatePresence, motion } from 'framer-motion'
 import { BaseLayout } from '@/layouts/BaseLayout'
 import '@/styles/globals.css'
+
+const roboto = Roboto({
+  weight: ['100', '300', '400', '500', '700', '900'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-roboto',
+})
+
+const space_mono = Space_Mono({
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-spacemono',
+})
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -40,11 +57,16 @@ export default function App({ Component, pageProps }: AppProps) {
               },
             }}
           >
-            <BaseLayout>
-              <div className="cursor"></div>
-              <div className="cursor2"></div>
-              <Component {...pageProps} />
-            </BaseLayout>
+            <main
+              className={`${roboto.variable} ${space_mono.variable} font-raulroboto`}
+            >
+              <BaseLayout>
+                <div className="cursor"></div>
+                <div className="cursor2"></div>
+
+                <Component {...pageProps} />
+              </BaseLayout>
+            </main>
           </motion.div>
         </AnimatePresence>
       </ThemeProvider>

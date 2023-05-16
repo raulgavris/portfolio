@@ -12,7 +12,7 @@
 
 html,
 body {
-  font-family: 'Roboto', 'Space Mono', sans-serif;
+  font-family: var(--font-roboto), var(--font-spacemono), 'Roboto', 'Space Mono';
   overflow: hidden;
   background: #1d2021;
   cursor: none;

@@ -27,10 +27,17 @@ const SinglePageApp: React.FC = () => {
   const scrollToSection = (section: string) => {
     const targetElement = document.getElementById(section.slice(1))
     if (targetElement && containerRef.current) {
-      containerRef.current.scrollTo({
-        top: targetElement.offsetTop,
-        behavior: 'smooth',
-      })
+      if (section.includes('home')) {
+        containerRef.current.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        })
+      } else {
+        containerRef.current.scrollTo({
+          top: targetElement.offsetTop,
+          behavior: 'smooth',
+        })
+      }
     }
   }
 

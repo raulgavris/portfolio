@@ -1,24 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
-import IonIcon from '@reacticons/ionicons'
 import gsap from 'gsap'
 import ClientsModal from '../ClientsModal'
-
-const InfoItem = ({
-  icon,
-  title,
-  value,
-  onClick,
-  className,
-}: InfoItemProps) => (
+import { InfoSvg } from '../Svg'
+const InfoItem = ({ title, value, onClick, className }: InfoItemProps) => (
   <div
     onClick={onClick}
-    className={`${className} flex flex-row items-center justify-center space-x-3 xxs:text-[8px] sm:flex-col sm:space-x-0 md:text-xs`}
+    className={`${className} flex h-40 w-24 flex-row items-center justify-center font-raulmono text-sm font-bold sm:flex-col`}
   >
-    <span className="dark:text-red">
-      <IonIcon name={`${icon}`}></IonIcon>
+    <span className="mb-2 dark:text-red">
+      <InfoSvg className="h-4 w-4 rotate-90" />
     </span>
-    <div>{title}</div>
+    <div className="whitespace-break-spaces text-center">{title}</div>
     <div>{value}</div>
   </div>
 )
@@ -117,48 +110,41 @@ const AboutSection = ({ containerRef, aboutRef }: AboutSectionProps) => {
       {showClients && (
         <ClientsModal setShowClients={setShowClients} pageRef={clientsModal} />
       )}
-      <div className="grid h-full w-full max-w-6xl grid-cols-6 grid-rows-6">
-        <div className="col-start-1 col-end-2 row-start-4 row-end-5">
-          <div className="flex -rotate-90 flex-row items-center justify-center space-x-10 text-center text-xs dark:text-lightGray">
+      <div className="relative h-full max-h-[1000px] w-full max-w-[1500px]">
+        <div className="absolute -left-[70px] top-[35%]">
+          <div className="flex -rotate-90 flex-row items-center justify-center gap-10 text-center text-xs dark:text-lightGray">
+            <InfoItem className="" title="SATISFACTION CLIENTS" value="100%" />
             <InfoItem
-              className=""
-              icon="information-circle-outline"
-              title="SATISFACTION CLIENTS"
-              value="100%"
-            />
-            <InfoItem
-              icon="information-circle-outline"
               title="CLIENTS ON WORLDWIDE"
               value="8"
               onClick={handleShowClients}
               className="mousehover hover:cursor-pointer"
             />
-            <InfoItem
-              className=""
-              icon="information-circle-outline"
-              title="PROJECTS DONE"
-              value="24"
-            />
+            <InfoItem className="" title="PROJECTS DONE" value="24" />
           </div>
         </div>
-        <div className="col-start-2 col-end-6 row-start-2 row-end-6 dark:bg-darkBlack">
-          <div className="items-left :space-x-4 relative flex flex-col justify-start space-x-0 sm:flex-row mlg:space-x-20 lg:space-x-16 xl:space-x-32 2xl:space-x-40">
-            <div className="items-left relative z-30 flex flex-col justify-center space-y-4 dark:text-offWhite">
-              <div className="text-3xl">About Me</div>
-              <div className="w-52 text-xs sm:w-96 sm:text-sm">
+        <div className="absolute left-[20%] top-[15%] dark:bg-darkBlack">
+          <div className="items-left relative flex flex-col justify-start gap-0 sm:flex-row mlg:gap-20 lg:gap-16 xl:gap-32 2xl:gap-40">
+            <div className="items-left relative z-30 flex flex-col justify-center gap-4 dark:text-offWhite">
+              <div className="mb-8 font-raulmono text-5xl font-bold text-offWhite">
+                About Me
+              </div>
+              <div className="w-52 text-base sm:w-80 sm:text-sm">
                 I am a Full Stack Engineer with 4+ years of experience. I use my
                 expertise, skills, and passion to architect, design, and
                 implement modern, practical, and reliable systems for my
                 clients.
               </div>
-              <div className="w-52 text-xs sm:w-96 sm:text-sm">
+              <div className="w-52 text-base sm:w-80 sm:text-sm">
                 Software engineering is a never-ending puzzle that I am
                 passionately engaged in solving. I believe in the power of
                 programming to transform and improve the lives of people around
                 the world.
               </div>
-              <div>Some of my skills:</div>
-              <div className="ml-2 w-52 flex-col space-y-2 text-xs sm:w-96 sm:text-sm">
+              <div className="mt-8 font-raulmono text-[24px] font-bold leading-[36px]">
+                Some of my skills:
+              </div>
+              <div className="ml-2 w-52 flex-col gap-2 text-base font-semibold sm:w-96 sm:text-sm">
                 <div>
                   <span className="dark:text-red">•</span> ExpressJS / NestJS
                 </div>
@@ -193,16 +179,16 @@ const AboutSection = ({ containerRef, aboutRef }: AboutSectionProps) => {
                   alt="heroAbout"
                   ref={image}
                   src="/raul-about.png"
-                  className="z-20 opacity-0 xxs:rounded-full sm:rounded-3xl"
+                  className="z-20 opacity-0 drop-shadow-basic xxs:rounded-full sm:rounded-3xl"
                 />
               </div>
               <div
                 ref={box1}
-                className="absolute -bottom-4 -left-4 z-10 h-[550px] w-[300px] border-2 opacity-0 dark:border-lightGray dark:bg-darkGray xxs:ml-2 sm:-bottom-4 sm:left-20 sm:z-0 sm:h-[500px] sm:w-[350px]"
+                className="absolute bottom-0 left-10 z-10 h-[500px] w-[350px] border-2 opacity-0 shadow-basic drop-shadow-basic dark:border-lightGray dark:bg-darkGray"
               ></div>
               <div
                 ref={box2}
-                className="absolute bottom-0  left-10 z-0 h-[500px] w-[350px] border-2 opacity-0 dark:border-lightGray dark:bg-darkGray"
+                className="absolute -bottom-10 left-20 z-0  h-[500px] w-[350px] border-2 opacity-0 shadow-basic drop-shadow-basic dark:border-lightGray dark:bg-darkGray"
               ></div>
             </div>
           </div>

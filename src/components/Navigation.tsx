@@ -4,9 +4,11 @@ import Button2 from './Button2'
 import Button1 from './Button1'
 import Hamburger from './Hamburger'
 import { useWindowSize } from '@/lib/hooks/useWindowSize'
-import Sun from '@/components/Svg/sun.svg'
+import { SunSvg, MoonSvg } from '@/components/Svg'
 
 const Navigation = () => {
+  const [pathname, setPathname] = useState('')
+
   const [showNavigation, setShowNavigation] = useState(false)
 
   const [width] = useWindowSize()
@@ -17,26 +19,47 @@ const Navigation = () => {
     }
   }, [width])
 
+  useEffect(() => {
+    // Get the current pathname
+    console.log('window', window.location.pathname)
+    setPathname(window.location.pathname)
+
+    // If you want to keep track of the pathname if it changes, you can add a listener here
+    const handleLocationChange = () => {
+      setPathname(window.location.pathname)
+    }
+
+    window.addEventListener('popstate', handleLocationChange)
+
+    // Don't forget to clean up your effect by removing the listener
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange)
+    }
+  }, [pathname])
+
   return width > 770 ? (
     <div className="relative z-20 mx-auto flex h-24 max-w-[1500px] flex-row items-center justify-between px-1 dark:bg-darkBlack md:px-20">
-      <div className="item-center flex flex-row items-center justify-center">
+      <div className="item-center flex flex-row items-center justify-center gap-4">
         <div
-          className="mousehover relative h-14 w-14 transition-all duration-1000 active:scale-110 dark:text-lightGray dark:hover:text-offWhite"
+          className="mousehover group relative h-14 w-14 active:scale-110 dark:text-lightGray dark:hover:text-offWhite"
           // onClick={handleChangeDimension}
         >
-          <span className="pointer-events-none absolute left-[23px] top-4">
+          <span className="pointer-events-none absolute left-[25px] top-[18px] text-[25px] leading-[29px] text-red transition-all duration-500 text-shadow-text group-hover:text-offWhite">
             R
           </span>
+          <div className="absolute left-[16px] top-[14px] h-[50px] w-[50px] border-[2px] border-lightGray transition-all duration-500 group-hover:rounded-[15px] group-hover:border-[1px] group-hover:border-red"></div>
+          <div className="absolute top-[8px] h-[50px] w-[50px] border-[2px] border-lightGray transition-all duration-500 group-hover:rounded-[15px] group-hover:border-[1px] group-hover:border-red"></div>
+          <div className="absolute left-[10px] h-[50px] w-[50px] border-[2px] border-lightGray transition-all duration-500 group-hover:rounded-[15px] group-hover:border-[1px] group-hover:border-red"></div>
         </div>
         <div
           className="mousehover ml-4 mt-2 text-2xl transition-all duration-200 hover:-rotate-6 hover:skew-x-3 hover:scale-110 active:scale-95  dark:text-lightGray"
           // onClick={handleThemeSwitch}
         >
-          <Sun />
+          <SunSvg />
         </div>
       </div>
 
-      <div className="flex flex-row space-x-10">
+      <div className="flex flex-row gap-10">
         <Link href="/about">
           <Button2>About</Button2>
         </Link>
@@ -61,22 +84,28 @@ const Navigation = () => {
       )}
       {showNavigation && (
         <>
-          <div className="relative z-20 h-full w-3/6 shadow dark:bg-darkGray sm:w-2/6">
+          <div className="absolute right-0 z-[99] h-screen w-3/6 shadow dark:bg-darkGray sm:w-2/6">
             <Hamburger setShowNavigation={setShowNavigation} value={false} />
-            <div className="item-center items-left mt-32 flex flex-row justify-center">
-              <div className="mousehover relative h-14 w-14 transition-all duration-1000 active:scale-110 dark:text-lightGray dark:hover:text-offWhite">
-                <span className="pointer-events-none absolute left-[23px] top-4">
+            <div className="item-center items-left mt-32 flex flex-row justify-center gap-4">
+              <div
+                className="mousehover group relative h-14 w-14 active:scale-110 dark:text-lightGray dark:hover:text-offWhite"
+                // onClick={handleChangeDimension}
+              >
+                <span className="pointer-events-none absolute left-[25px] top-[18px] text-[25px] leading-[29px] text-red transition-all duration-500 text-shadow-text group-hover:text-offWhite">
                   R
                 </span>
+                <div className="absolute left-[16px] top-[14px] h-[50px] w-[50px] border-[2px] border-lightGray transition-all duration-500 group-hover:rounded-[15px] group-hover:border-[1px] group-hover:border-red"></div>
+                <div className="absolute top-[8px] h-[50px] w-[50px] border-[2px] border-lightGray transition-all duration-500 group-hover:rounded-[15px] group-hover:border-[1px] group-hover:border-red"></div>
+                <div className="absolute left-[10px] h-[50px] w-[50px] border-[2px] border-lightGray transition-all duration-500 group-hover:rounded-[15px] group-hover:border-[1px] group-hover:border-red"></div>
               </div>
               <div
-                className="mousehover ml-4 mt-2 text-2xl transition-all duration-200 hover:-rotate-6 hover:skew-x-3 hover:scale-110 active:scale-95  dark:text-lightGray"
+                className="mousehover text-2xl transition-all duration-200 hover:-rotate-6 hover:skew-x-3 hover:scale-110 active:scale-95  dark:text-lightGray"
                 // onClick={handleThemeSwitch}
               >
-                <Sun />
+                <SunSvg />
               </div>
             </div>
-            <div className="flex flex-col items-center justify-center space-y-10 p-10">
+            <div className="flex flex-col items-center justify-center gap-10 p-10">
               <Link href="/contact">
                 <Button2>About</Button2>
               </Link>
