@@ -49,15 +49,15 @@ const ProjectShowcase = ({
             <div className="absolute right-0 top-10 flex flex-row gap-10 text-lg dark:text-lightGray">
               <a
                 href={gitLink}
-                className="mousehover opacity-90 transition-all duration-200 hover:scale-125 hover:cursor-pointer hover:opacity-100 active:scale-100"
+                className="mousehover opacity-90 drop-shadow-basic transition-all duration-200 hover:scale-125 hover:cursor-pointer hover:opacity-100 active:scale-100"
               >
-                <GitSvg />
+                <GitSvg className="fill-lightGray hover:fill-teal" />
               </a>
               <a
                 href={projectUrl}
-                className="mousehover opacity-90 transition-all duration-200 hover:scale-125 hover:cursor-pointer hover:opacity-100 active:scale-100"
+                className="mousehover opacity-90 drop-shadow-basic transition-all duration-200 hover:scale-125 hover:cursor-pointer hover:opacity-100 active:scale-100"
               >
-                <OpenSvg />
+                <OpenSvg className="fill-lightGray hover:fill-teal" />
               </a>
             </div>
           </div>

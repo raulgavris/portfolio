@@ -36,7 +36,7 @@ export const BaseLayout = ({ children }: BaseLayoutProps) => {
       ].map(({ href, icon }: { href: string; icon: IconType }) => (
         <span
           key={icon}
-          className=" mousehover transition-all duration-200 hover:translate-x-1 hover:rotate-3 hover:scale-110 dark:hover:text-teal"
+          className="mousehover drop-shadow-basic transition-all duration-200 hover:translate-x-1 hover:rotate-3 hover:scale-110 dark:hover:text-teal"
         >
           <a href={href}>
             <IonIcon name={icon}></IonIcon>
@@ -61,7 +61,7 @@ export const BaseLayout = ({ children }: BaseLayoutProps) => {
         {children}
         <div className="fixed bottom-0 right-0 z-10 max-w-[1500px]">
           <span className="mousehover absolute bottom-0 right-10 block h-28 w-0.5 dark:bg-lightGray sm:right-40">
-            <span className="absolute -right-[113px] bottom-56 rotate-90 font-raulmono text-[16px] font-bold leading-[24px] transition-all duration-200 hover:-translate-y-2 dark:text-lightGray dark:hover:text-teal">
+            <span className="absolute -right-[113px] bottom-56 rotate-90 font-raulmono text-[16px] font-bold leading-[24px] transition-all duration-200 text-shadow-text hover:-translate-y-2 dark:text-lightGray dark:hover:text-teal">
               <a href="mailto:rg.raulgavris@gmail.com">
                 rg.raulgavris@gmail.com
               </a>

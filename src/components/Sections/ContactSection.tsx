@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Button1 from '@/components/Button1'
-import CopyRight from '@/components/Svg/copyright.svg'
+import { CopyRightSvg, EmailSvg, PhoneSvg } from '@/components/Svg'
 
 const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
   const router = useRouter()
+
+  const emailRegex = '^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$'
+
+  const [errors, setErrors] = useState({
+    name: false,
+    email: false,
+    message: false,
+  })
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -39,8 +47,8 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
       ref={contactRef}
       data-path="/contact"
     >
-      <div className="relative mx-auto flex w-full max-w-7xl flex-row items-start justify-center divide-x px-8 text-lightGray">
-        <div className="mt-28 flex flex-row items-start justify-center">
+      <div className="relative mx-auto flex w-full max-w-6xl flex-row items-start justify-center text-lightGray">
+        <div className="mt-28 flex flex-row items-start justify-center divide-x divide-lightGray px-8">
           <div className="flex w-1/2 flex-col items-start justify-start gap-2 px-6 py-0">
             <h1 className="font-raulmono text-4xl font-normal">
               Let's Connect!
@@ -53,30 +61,17 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
               Looking forward to hearing from you!
             </p>
             <div className="flex flex-col gap-4">
-              <p className="flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="mr-2 h-5 w-5 sm:mr-6"
-                >
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
-                </svg>
-                <span className="font-raulmono text-xl">+40758585407</span>
+              <p className="group flex w-52 items-center justify-start">
+                <PhoneSvg className="mr-5 h-6 w-6 drop-shadow-basic group-hover:fill-teal" />
+                <span className="mousehover font-raulmono text-xl transition-all duration-150 text-shadow-text group-hover:translate-x-2 group-hover:text-teal ">
+                  +40758585407
+                </span>
               </p>
-              <p className="group flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="mr-2 h-5 w-5 group-hover:fill-teal sm:mr-6"
-                >
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                </svg>
+              <p className="group flex items-center justify-center">
+                <EmailSvg className="mr-5 mt-1 h-6 w-6 fill-lightGray drop-shadow-basic group-hover:fill-teal" />
                 <a
                   href="mailto:rg.raulgavris@gmail.com"
-                  className="mousehover font-raulmono text-xl transition-all duration-150 group-hover:translate-x-2 group-hover:text-teal"
+                  className="mousehover font-raulmono text-xl transition-all duration-150 text-shadow-text group-hover:translate-x-2 group-hover:text-teal"
                 >
                   rg.raulgavris@gmail.com
                 </a>
@@ -84,11 +79,14 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
             </div>
           </div>
           <form
+            noValidate
             onSubmit={handleSubmit}
             className="ng-untouched ng-pristine ng-valid flex w-1/2 flex-col gap-8 py-6 md:px-6 md:py-0"
           >
             <div className="mousehover relative">
               <input
+                maxLength={50}
+                required
                 value={name}
                 onChange={(e) => {
                   setName(e.target.value)
@@ -97,47 +95,71 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
                 name="name"
                 type="text"
                 placeholder="Your Name"
-                className="peer relative w-full rounded-md p-3 placeholder-transparent drop-shadow focus:outline-none focus:ring focus:ring-teal focus:ring-opacity-75 dark:bg-darkGray"
+                className={`${
+                  errors.name ? 'ring ring-red' : 'focus:ring focus:ring-teal'
+                } peer relative w-full rounded-md p-3 placeholder-transparent drop-shadow-basic focus:outline-none focus:ring-opacity-75 dark:bg-darkGray`}
               />
               <label
                 htmlFor="name"
-                className="pointer-events-none absolute -top-7 left-2 text-sm opacity-100 transition-all duration-500 peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:text-lg peer-placeholder-shown:opacity-50"
+                className="pointer-events-none absolute -top-7 left-2 text-sm opacity-100 transition-all duration-500 text-shadow-text peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:font-raulmono peer-placeholder-shown:text-lg peer-placeholder-shown:opacity-50"
               >
                 Full name
               </label>
             </div>
             <div className="mousehover relative">
               <input
+                maxLength={50}
+                required
+                pattern={emailRegex}
                 value={email}
                 onChange={(e) => {
+                  const regex = new RegExp(emailRegex)
+                  if (!regex.test(e.target.value)) {
+                    setErrors({ ...errors, email: true })
+                  } else {
+                    setErrors({ ...errors, email: false })
+                  }
                   setEmail(e.target.value)
                 }}
                 id="email"
                 name="email"
                 type="email"
                 placeholder="Your Email"
-                className="peer relative w-full rounded-md p-3 placeholder-transparent drop-shadow focus:outline-none focus:ring focus:ring-teal focus:ring-opacity-75 dark:bg-darkGray"
+                className={`${
+                  errors.email ? 'ring ring-red' : 'focus:ring focus:ring-teal'
+                } peer relative w-full rounded-md p-3 placeholder-transparent drop-shadow-basic focus:outline-none focus:ring-opacity-75 dark:bg-darkGray`}
               />
+              {errors.email && (
+                <span className="mt-2 text-sm text-red peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+                  Please enter a valid email address
+                </span>
+              )}
               <label
                 htmlFor="email"
-                className="pointer-events-none absolute -top-7 left-2 text-sm opacity-100 transition-all duration-500 peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:text-lg peer-placeholder-shown:opacity-50"
+                className="pointer-events-none absolute -top-7 left-2 text-sm opacity-100 transition-all duration-500 text-shadow-text peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:font-raulmono peer-placeholder-shown:text-lg peer-placeholder-shown:opacity-50"
               >
                 Email
               </label>
             </div>
             <div className="mousehover relative">
               <textarea
+                required
+                maxLength={500}
                 value={message}
                 onChange={(e) => {
                   setMessage(e.target.value)
                 }}
                 placeholder="Message"
                 rows={8}
-                className="peer block w-full resize-none rounded-md p-3 placeholder-transparent drop-shadow focus:outline-none focus:ring focus:ring-teal focus:ring-opacity-75 dark:bg-darkGray"
+                className={`${
+                  errors.message
+                    ? 'ring ring-red'
+                    : 'focus:ring focus:ring-teal'
+                } peer block w-full resize-none rounded-md p-3 placeholder-transparent drop-shadow-basic focus:outline-none focus:ring-opacity-75 dark:bg-darkGray`}
               ></textarea>
               <label
                 htmlFor="email"
-                className="pointer-events-none absolute -top-7 left-2 text-sm opacity-100 transition-all duration-500 placeholder:text-shadow-text peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:text-lg peer-placeholder-shown:opacity-50"
+                className="pointer-events-none absolute -top-7 left-2 text-sm opacity-100 transition-all duration-500 text-shadow-text peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:font-raulmono peer-placeholder-shown:text-lg peer-placeholder-shown:opacity-50"
               >
                 Message
               </label>
@@ -150,7 +172,7 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
       </div>
       <div className="absolute bottom-[150px] flex w-full flex-row items-center justify-center gap-4 font-raulmono text-[14px] font-bold leading-[21px] text-lightGray drop-shadow-basic text-shadow-text">
         <span>Copyright</span>
-        <CopyRight />
+        <CopyRightSvg className="fill-lightGray" />
         <span>2023 Raul Gavriș - Full Stack Engineer</span>
       </div>
     </div>

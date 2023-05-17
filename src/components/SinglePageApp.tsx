@@ -82,6 +82,7 @@ const SinglePageApp: React.FC = () => {
     }, 500)
     const setup3DButtons = () => {
       document.querySelectorAll('.button-3d').forEach((button: HTMLElement) => {
+        console.log('button', button)
         const bounding = button.getBoundingClientRect()
 
         button.addEventListener('mousemove', (e) => {
