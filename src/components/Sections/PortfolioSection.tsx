@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import gsap from 'gsap'
 import ProjectShowcase from '@/components/ProjectShowcase'
 import PortfolioSelected from '@/components/PortfolioSelected'
-import IonIcon from '@reacticons/ionicons'
+import { ChevronSvg } from '@/components/Svg'
 
 let data = [
   {
@@ -195,7 +195,7 @@ const PortfolioSection = ({
             }}
           >
             <div className="mousehover text-3xl transition-all duration-200 hover:scale-125 active:scale-100 dark:text-lightGray">
-              <IonIcon name="chevron-back-outline"></IonIcon>
+              <ChevronSvg className="h-6 w-6 fill-lightGray" />
             </div>
           </button>
           <button
@@ -205,7 +205,7 @@ const PortfolioSection = ({
             }}
           >
             <div className="mousehover text-3xl transition-all duration-200 hover:scale-125 active:scale-100 dark:text-lightGray">
-              <IonIcon name="chevron-forward-outline"></IonIcon>
+              <ChevronSvg className="h-6 w-6 rotate-180 fill-lightGray" />
             </div>
           </button>
         </div>

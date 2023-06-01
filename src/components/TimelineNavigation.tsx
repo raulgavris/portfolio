@@ -4,6 +4,7 @@ const navItems = [
   { section: '/home', label: 'Home' },
   { section: '/about', label: 'About' },
   { section: '/portfolio', label: 'Portfolio' },
+  { section: '/blog', label: 'Blog' },
   { section: '/contact', label: 'Contact' },
 ]
 

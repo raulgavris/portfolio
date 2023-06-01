@@ -1,14 +1,10 @@
-import IonIcon from '@reacticons/ionicons'
+import { PointSvg } from '@/components/Svg'
 
 const PortfolioSelected = ({ active }) => {
   return active ? (
-    <div className="mousehover text-sm opacity-100 dark:text-lightGray">
-      <IonIcon name="ellipse"></IonIcon>
-    </div>
+    <PointSvg className="mousehover fill-lightGray opacity-100" />
   ) : (
-    <div className="mousehover text-sm opacity-50 dark:text-lightGray">
-      <IonIcon name="ellipse"></IonIcon>
-    </div>
+    <PointSvg className="mousehover fill-lightGray opacity-50" />
   )
 }
 

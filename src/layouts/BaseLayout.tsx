@@ -1,7 +1,12 @@
 import React from 'react'
 import { useTheme } from 'next-themes'
 import Navigation from '@/components/Navigation'
-import IonIcon from '@reacticons/ionicons'
+import {
+  GitSvg,
+  LinkedinSvg,
+  FacebookSvg,
+  InstagramSvg,
+} from '@/components/Svg'
 
 export interface BaseLayoutProps {
   children: React.ReactNode
@@ -11,36 +16,39 @@ export const BaseLayout = ({ children }: BaseLayoutProps) => {
   const { systemTheme, theme, setTheme } = useTheme()
   const currentTheme = theme === 'system' ? systemTheme : theme
 
-  type IconType =
-    | 'logo-linkedin'
-    | 'logo-github'
-    | 'logo-instagram'
-    | 'logo-facebook'
-
   const SocialMediaIcons = ({ className }) => (
     <div className={className}>
       {[
         {
           href: 'https://www.linkedin.com/in/rg-raul-gavris/',
-          icon: 'logo-linkedin',
+          icon: (
+            <LinkedinSvg className="fill-lightGray drop-shadow-basic hover:fill-teal" />
+          ),
         },
-        { href: 'https://github.com/raulgavris', icon: 'logo-github' },
+        {
+          href: 'https://github.com/raulgavris',
+          icon: (
+            <GitSvg className="fill-lightGray drop-shadow-basic hover:fill-teal" />
+          ),
+        },
         {
           href: 'https://www.instagram.com/raul_gavris/',
-          icon: 'logo-instagram',
+          icon: (
+            <InstagramSvg className="fill-lightGray drop-shadow-basic hover:fill-teal" />
+          ),
         },
         {
           href: 'https://www.facebook.com/rg.raulgavris/',
-          icon: 'logo-facebook',
+          icon: (
+            <FacebookSvg className="fill-lightGray drop-shadow-basic hover:fill-teal" />
+          ),
         },
-      ].map(({ href, icon }: { href: string; icon: IconType }) => (
+      ].map(({ href, icon }: { href: string; icon: any }) => (
         <span
           key={icon}
-          className="mousehover drop-shadow-basic transition-all duration-200 hover:translate-x-1 hover:rotate-3 hover:scale-110 dark:hover:text-teal"
+          className="mousehover transition-all duration-200 hover:translate-x-1 hover:rotate-3 hover:scale-110 dark:hover:text-teal"
         >
-          <a href={href}>
-            <IonIcon name={icon}></IonIcon>
-          </a>
+          <a href={href}>{icon}</a>
         </span>
       ))}
     </div>
@@ -68,7 +76,7 @@ export const BaseLayout = ({ children }: BaseLayoutProps) => {
             </span>
           </span>
           <span className="absolute bottom-0 right-20 block h-28 w-0.5 dark:bg-lightGray">
-            <SocialMediaIcons className="absolute bottom-[116px] right-[-10px] flex flex-col gap-[34px] text-2xl dark:text-lightGray" />
+            <SocialMediaIcons className="absolute bottom-[120px] right-[-11px] flex flex-col gap-[45px] text-2xl" />
           </span>
         </div>
       </div>

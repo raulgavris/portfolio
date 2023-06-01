@@ -7,6 +7,7 @@ import useScrollSpy from '@/lib/hooks/useScrollSpy'
 import TimelineNavigation from './TimelineNavigation'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import gsap from 'gsap'
+import BlogSection from './Sections/BlogSection'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -14,12 +15,14 @@ const SinglePageApp: React.FC = () => {
   const homeRef = useRef<SectionElement>(null)
   const aboutRef = useRef<SectionElement>(null)
   const portfolioRef = useRef<SectionElement>(null)
+  const blogRef = useRef<SectionElement>(null)
   const contactRef = useRef<SectionElement>(null)
 
   const activeSection = useScrollSpy([
     homeRef,
     aboutRef,
     portfolioRef,
+    blogRef,
     contactRef,
   ])
   const containerRef = useRef<HTMLDivElement>(null)
@@ -120,6 +123,7 @@ const SinglePageApp: React.FC = () => {
         portfolioRef={portfolioRef}
         containerRef={containerRef}
       />
+      <BlogSection blogRef={blogRef} containerRef={containerRef} />
       <ContactSection contactRef={contactRef} containerRef={containerRef} />
     </div>
   )

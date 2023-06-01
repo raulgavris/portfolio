@@ -55,7 +55,7 @@ const Navigation = () => {
           className="mousehover ml-4 mt-2 text-2xl transition-all duration-200 hover:-rotate-6 hover:skew-x-3 hover:scale-110 active:scale-95  dark:text-lightGray"
           // onClick={handleThemeSwitch}
         >
-          <SunSvg />
+          <SunSvg className="h-7 w-7 fill-lightGray" />
         </div>
       </div>
 
@@ -102,7 +102,7 @@ const Navigation = () => {
                 className="mousehover text-2xl transition-all duration-200 hover:-rotate-6 hover:skew-x-3 hover:scale-110 active:scale-95  dark:text-lightGray"
                 // onClick={handleThemeSwitch}
               >
-                <SunSvg />
+                <SunSvg className="h-7 w-7 fill-lightGray" />
               </div>
             </div>
             <div className="flex flex-col items-center justify-center gap-10 p-10">
