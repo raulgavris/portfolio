@@ -31,8 +31,8 @@ const BlogSection = ({ containerRef, blogRef }: BlogSectionProps) => {
     const targetElement = document.getElementById('blog')
     if (targetElement) {
       if (router.route.includes(targetElement.id)) {
-        containerRef?.current.scrollTo({
-          top: targetElement.offsetTop,
+        containerRef.current.scrollTo({
+          top: targetElement.offsetTop + 50,
           behavior: 'auto',
         })
       }

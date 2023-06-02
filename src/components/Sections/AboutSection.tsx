@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import gsap from 'gsap'
 import ClientsModal from '../ClientsModal'
 import { InfoSvg } from '../Svg'
+
 const InfoItem = ({ title, value, onClick, className }: InfoItemProps) => (
   <div
     onClick={onClick}
@@ -92,7 +93,7 @@ const AboutSection = ({ containerRef, aboutRef }: AboutSectionProps) => {
     const targetElement = document.getElementById('about')
     if (targetElement) {
       if (router.route.includes(targetElement.id)) {
-        containerRef?.current.scrollTo({
+        containerRef.current.scrollTo({
           top: targetElement.offsetTop,
           behavior: 'auto',
         })

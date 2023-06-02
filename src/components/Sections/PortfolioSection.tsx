@@ -156,8 +156,8 @@ const PortfolioSection = ({
     const targetElement = document.getElementById('portfolio')
     if (targetElement) {
       if (router.route.includes(targetElement.id)) {
-        containerRef?.current.scrollTo({
-          top: targetElement.offsetTop,
+        containerRef.current.scrollTo({
+          top: targetElement.offsetTop + 100,
           behavior: 'auto',
         })
       }

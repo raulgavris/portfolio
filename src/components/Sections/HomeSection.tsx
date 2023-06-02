@@ -10,7 +10,7 @@ interface HomeSectionProps {
 const HomeSection = ({ containerRef, homeRef }: HomeSectionProps) => {
   const router = useRouter()
 
-  const { about } = useSelector((state: any) => {
+  const { about } = useSelector((state: SectionSliceState) => {
     return state.SectionSlice
   })
 
@@ -18,7 +18,7 @@ const HomeSection = ({ containerRef, homeRef }: HomeSectionProps) => {
     const targetElement = document.getElementById('home')
     if (targetElement) {
       if (router.route.includes(targetElement.id)) {
-        containerRef?.current.scrollTo({
+        containerRef.current.scrollTo({
           top: 0,
           behavior: 'auto',
         })

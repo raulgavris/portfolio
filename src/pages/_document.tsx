@@ -5,6 +5,8 @@ export default function Document() {
     <Html lang="en">
       <Head />
       <body>
+        <div className="cursor"></div>
+        <div className="cursor2"></div>
         <Main />
         <NextScript />
       </body>

@@ -1,17 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
+import React from 'react'
 
-const initialState: any = {
-  about: '',
-  blog: '',
-  contact: '',
-  home: '',
-  portfolio: '',
-  container: '',
-  active: '',
+const initialState: SectionSlice = {
+  about: React.createRef<HTMLDivElement>(),
+  blog: React.createRef<HTMLDivElement>(),
+  contact: React.createRef<HTMLDivElement>(),
+  home: React.createRef<HTMLDivElement>(),
+  portfolio: React.createRef<HTMLDivElement>(),
+  container: React.createRef<HTMLDivElement>(),
+  active: '/home',
 }
 
 export const SectionSlice = createSlice({
-  name: 'SectionSlice',
+  name: 'sectionSlice',
   initialState,
   reducers: {
     updateAbout: (state, action) => {

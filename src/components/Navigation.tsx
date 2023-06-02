@@ -8,7 +8,7 @@ import { SunSvg, MoonSvg } from '@/components/Svg'
 import { useSelector } from 'react-redux'
 
 const Navigation = () => {
-  const { active } = useSelector((state: any) => {
+  const { active } = useSelector((state: SectionSliceState) => {
     return state.SectionSlice
   })
 
@@ -73,9 +73,11 @@ const Navigation = () => {
         <Link href="/contact">
           <Button2 active={active}>Contact</Button2>
         </Link>
-        <div className="mousehover">
-          <Button1>RESUME</Button1>
-        </div>
+        <Link href="/resume">
+          <div className="mousehover">
+            <Button1>RESUME</Button1>
+          </div>
+        </Link>
       </div>
     </div>
   ) : (

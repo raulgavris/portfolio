@@ -32,8 +32,8 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
     const targetElement = document.getElementById('contact')
     if (targetElement) {
       if (router.route.includes(targetElement.id)) {
-        containerRef?.current.scrollTo({
-          top: targetElement.offsetTop,
+        containerRef.current.scrollTo({
+          top: targetElement.offsetTop + 100,
           behavior: 'auto',
         })
       }
