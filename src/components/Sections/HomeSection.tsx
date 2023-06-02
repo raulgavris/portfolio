@@ -1,5 +1,6 @@
 import React, { RefObject, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
 
 interface HomeSectionProps {
   containerRef: RefObject<HTMLDivElement>
@@ -8,6 +9,10 @@ interface HomeSectionProps {
 
 const HomeSection = ({ containerRef, homeRef }: HomeSectionProps) => {
   const router = useRouter()
+
+  const { about } = useSelector((state: any) => {
+    return state.SectionSlice
+  })
 
   useEffect(() => {
     const targetElement = document.getElementById('home')
@@ -60,6 +65,14 @@ const HomeSection = ({ containerRef, homeRef }: HomeSectionProps) => {
               contracts in Solidity.
             </div>
             <button
+              onClick={() => {
+                if (about && about.current) {
+                  containerRef.current.scrollTo({
+                    top: about.current.offsetTop,
+                    behavior: 'smooth',
+                  })
+                }
+              }}
               type="button"
               className="button-3d mousehover relative z-50 flex h-[67px] w-[271px] flex-row items-center justify-center border-[2px] border-darkBlack font-raulmono text-[18px] font-normal leading-[27px] shadow-basic transition-all duration-300 focus:outline-none dark:bg-darkGray dark:text-lightGray hover:dark:bg-lightGray dark:hover:text-darkGray"
             >

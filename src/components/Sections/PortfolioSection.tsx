@@ -194,7 +194,7 @@ const PortfolioSection = ({
               prevSlide()
             }}
           >
-            <div className="mousehover text-3xl transition-all duration-200 hover:scale-125 active:scale-100 dark:text-lightGray">
+            <div className="mousehover transition-all duration-200 hover:scale-125 active:scale-100 dark:text-lightGray">
               <ChevronSvg className="h-6 w-6 fill-lightGray" />
             </div>
           </button>
@@ -204,7 +204,7 @@ const PortfolioSection = ({
               nextSlide()
             }}
           >
-            <div className="mousehover text-3xl transition-all duration-200 hover:scale-125 active:scale-100 dark:text-lightGray">
+            <div className="mousehover transition-all duration-200 hover:scale-125 active:scale-100 dark:text-lightGray">
               <ChevronSvg className="h-6 w-6 rotate-180 fill-lightGray" />
             </div>
           </button>

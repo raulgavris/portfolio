@@ -45,7 +45,7 @@ export const BaseLayout = ({ children }: BaseLayoutProps) => {
         },
       ].map(({ href, icon }: { href: string; icon: any }) => (
         <span
-          key={icon}
+          key={href}
           className="mousehover transition-all duration-200 hover:translate-x-1 hover:rotate-3 hover:scale-110 dark:hover:text-teal"
         >
           <a href={href}>{icon}</a>

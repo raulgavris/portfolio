@@ -8,10 +8,23 @@ import TimelineNavigation from './TimelineNavigation'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import gsap from 'gsap'
 import BlogSection from './Sections/BlogSection'
+import { useDispatch } from 'react-redux'
+import cloneDeep from 'lodash/cloneDeep'
+import {
+  updateAbout,
+  updateActive,
+  updateBlog,
+  updateContact,
+  updateContainer,
+  updateHome,
+  updatePortfolio,
+} from '@/redux/store'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const SinglePageApp: React.FC = () => {
+  const dispatch = useDispatch()
+
   const homeRef = useRef<SectionElement>(null)
   const aboutRef = useRef<SectionElement>(null)
   const portfolioRef = useRef<SectionElement>(null)
@@ -43,6 +56,35 @@ const SinglePageApp: React.FC = () => {
       }
     }
   }
+
+  useEffect(() => {
+    if (aboutRef && aboutRef.current) {
+      const newAbout = cloneDeep(aboutRef)
+      dispatch(updateAbout(newAbout))
+    }
+    if (blogRef && blogRef.current) {
+      const newBlog = cloneDeep(blogRef)
+      dispatch(updateBlog(newBlog))
+    }
+    if (contactRef && contactRef.current) {
+      const newContact = cloneDeep(contactRef)
+      dispatch(updateContact(newContact))
+    }
+    if (homeRef && homeRef.current) {
+      const newHome = cloneDeep(homeRef)
+      dispatch(updateHome(newHome))
+    }
+    if (portfolioRef && portfolioRef.current) {
+      const newPortfolio = cloneDeep(portfolioRef)
+      dispatch(updatePortfolio(newPortfolio))
+    }
+    if (containerRef && containerRef.current) {
+      const newContainer = cloneDeep(containerRef)
+      dispatch(updateContainer(newContainer))
+    }
+    // dispatch(updateContainer(containerRef))
+    dispatch(updateActive(activeSection))
+  }, [dispatch, activeSection])
 
   useEffect(() => {
     const setupCursor = () => {
@@ -85,7 +127,6 @@ const SinglePageApp: React.FC = () => {
     }, 500)
     const setup3DButtons = () => {
       document.querySelectorAll('.button-3d').forEach((button: HTMLElement) => {
-        console.log('button', button)
         const bounding = button.getBoundingClientRect()
 
         button.addEventListener('mousemove', (e) => {
@@ -105,7 +146,7 @@ const SinglePageApp: React.FC = () => {
     setTimeout(() => {
       setup3DButtons()
     }, 500)
-  }, [])
+  }, [dispatch])
 
   return (
     <div

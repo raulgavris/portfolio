@@ -5,8 +5,13 @@ import Button1 from './Button1'
 import Hamburger from './Hamburger'
 import { useWindowSize } from '@/lib/hooks/useWindowSize'
 import { SunSvg, MoonSvg } from '@/components/Svg'
+import { useSelector } from 'react-redux'
 
 const Navigation = () => {
+  const { active } = useSelector((state: any) => {
+    return state.SectionSlice
+  })
+
   const [pathname, setPathname] = useState('')
 
   const [showNavigation, setShowNavigation] = useState(false)
@@ -20,25 +25,21 @@ const Navigation = () => {
   }, [width])
 
   useEffect(() => {
-    // Get the current pathname
-    console.log('window', window.location.pathname)
     setPathname(window.location.pathname)
 
-    // If you want to keep track of the pathname if it changes, you can add a listener here
     const handleLocationChange = () => {
       setPathname(window.location.pathname)
     }
 
     window.addEventListener('popstate', handleLocationChange)
 
-    // Don't forget to clean up your effect by removing the listener
     return () => {
       window.removeEventListener('popstate', handleLocationChange)
     }
   }, [pathname])
 
   return width > 770 ? (
-    <div className="relative z-20 mx-auto flex h-24 max-w-[1500px] flex-row items-center justify-between px-1 dark:bg-darkBlack md:px-20">
+    <div className="relative z-20 mx-auto flex h-24 flex-row items-center justify-between px-16 dark:bg-darkBlack">
       <div className="item-center flex flex-row items-center justify-center gap-4">
         <div
           className="mousehover group relative h-14 w-14 active:scale-110 dark:text-lightGray dark:hover:text-offWhite"
@@ -61,16 +62,16 @@ const Navigation = () => {
 
       <div className="flex flex-row gap-10">
         <Link href="/about">
-          <Button2>About</Button2>
+          <Button2 active={active}>About</Button2>
         </Link>
         <Link href="/portfolio">
-          <Button2>Portfolio</Button2>
+          <Button2 active={active}>Portfolio</Button2>
         </Link>
         <Link href="/blog">
-          <Button2>Blog</Button2>
+          <Button2 active={active}>Blog</Button2>
         </Link>
         <Link href="/contact">
-          <Button2>Contact</Button2>
+          <Button2 active={active}>Contact</Button2>
         </Link>
         <div className="mousehover">
           <Button1>RESUME</Button1>

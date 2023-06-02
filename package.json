@@ -44,13 +44,15 @@
   "dependencies": {
     "@react-three/drei": "^9.70.3",
     "@react-three/fiber": "^8.13.0",
+    "@reduxjs/toolkit": "^1.9.5",
     "framer-motion": "^10.12.16",
     "gsap": "^3.11.5",
+    "lodash": "^4.17.21",
     "next": "13.4.4",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-identicons": "^1.2.5",
+    "react-redux": "^8.0.7",
     "three": "^0.153.0"
   },
   "devDependencies": {
@@ -58,7 +60,7 @@
     "@commitlint/config-conventional": "17.6.5",
     "@svgr/webpack": "^8.0.1",
     "@types/node": "20.2.5",
-    "@types/react": "18.2.7",
+    "@types/react": "18.2.8",
     "@types/react-dom": "18.2.4",
     "@types/three": "^0.152.1",
     "@typescript-eslint/eslint-plugin": "5.59.8",
