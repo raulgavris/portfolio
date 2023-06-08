@@ -39,7 +39,7 @@ const Navigation = () => {
   }, [pathname])
 
   return width > 770 ? (
-    <div className="relative z-20 mx-auto flex h-24 flex-row items-center justify-between px-16 dark:bg-darkBlack">
+    <div className="fixed left-0 top-0 z-[999] mx-auto flex h-24 w-screen flex-row items-center justify-between px-16 dark:bg-darkBlack">
       <div className="item-center flex flex-row items-center justify-center gap-4">
         <div
           className="mousehover group relative h-14 w-14 active:scale-110 dark:text-lightGray dark:hover:text-offWhite"

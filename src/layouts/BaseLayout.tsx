@@ -56,7 +56,7 @@ export const BaseLayout = ({ children }: BaseLayoutProps) => {
 
   return (
     <>
-      <div className="relative m-0 h-full w-full overflow-y-scroll border-0 p-0">
+      <div className="relative m-0 h-full w-full border-0 p-0">
         {/* <button
           onClick={() =>
             theme == 'dark' ? setTheme('light') : setTheme('dark')

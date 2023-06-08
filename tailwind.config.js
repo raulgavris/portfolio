@@ -7,16 +7,20 @@ module.exports = {
       fontFamily: {
         raulroboto: ['var(--font-roboto)'],
         raulmono: ['var(--font-spacemono)'],
+        raullato: ['var(--font-lato)'],
       },
       textShadow: {
         text: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+        dark: '0px 6px 6px rgba(0, 0, 0, 0.5)',
       },
       boxShadow: {
         basicInset: 'inset 0px 4px 4px rgba(0, 0, 0, 0.25)',
         basic: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+        dark: '2px 4px 4px rgba(0, 0, 0, 1)',
       },
       dropShadow: {
         basic: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+        dark: '0px 6px 6px rgba(0, 0, 0, 5)',
       },
       screens: {
         xxs: '270px',
@@ -37,9 +41,11 @@ module.exports = {
         lightGray: '#fbf1c7',
         teal: '#458588',
         red: '#cc241d',
+        redBlack: '#8E3C3F',
         softGreen: '#98971a',
         offWhite: '#f5f5f5',
         softOrange: '#d79921',
+        blackDilluated: '#313131',
       },
     },
     gridTemplateColumns: {

@@ -48,7 +48,7 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
       data-path="/contact"
     >
       <div className="relative mx-auto flex w-full max-w-6xl flex-row items-start justify-center text-lightGray">
-        <div className="mt-28 flex flex-row items-start justify-center divide-x divide-lightGray px-8">
+        <div className="mt-52 flex flex-row items-start justify-center divide-x divide-lightGray px-8">
           <div className="flex w-1/2 flex-col items-start justify-start gap-2 px-6 py-0">
             <h1 className="font-raulmono text-4xl font-normal">
               Let's Connect!
@@ -170,7 +170,7 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
           </form>
         </div>
       </div>
-      <div className="absolute bottom-[150px] flex w-full flex-row items-center justify-center gap-4 font-raulmono text-[14px] font-bold leading-[21px] text-lightGray drop-shadow-basic text-shadow-text">
+      <div className="absolute bottom-[50px] flex w-full flex-row items-center justify-center gap-4 font-raulmono text-[14px] font-bold leading-[21px] text-lightGray drop-shadow-basic text-shadow-text">
         <span>Copyright</span>
         <CopyRightSvg className="fill-lightGray" />
         <span>2023 Raul Gavriș - Full Stack Engineer</span>

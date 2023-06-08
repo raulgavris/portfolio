@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Roboto, Space_Mono } from 'next/font/google'
+import { Roboto, Space_Mono, Lato } from 'next/font/google'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import { ThemeProvider } from 'next-themes'
@@ -26,8 +26,19 @@ const space_mono = Space_Mono({
   variable: '--font-spacemono',
 })
 
+const lato = Lato({
+  weight: ['100', '300', '400', '700', '900'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-lato',
+})
+
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
+
+  console.log('component', Component.displayName)
+  console.log('pageprops', pageProps)
 
   useEffect(() => {
     const setupCursor = () => {
@@ -125,11 +136,16 @@ export default function App({ Component, pageProps }: AppProps) {
               }}
             >
               <main
-                className={`${roboto.variable} ${space_mono.variable} font-raulroboto`}
+                className={`${roboto.variable} ${space_mono.variable} ${lato.variable} flex items-center justify-center font-raulroboto`}
               >
-                <BaseLayout>
+                {Component.displayName !== 'resume' && (
+                  <BaseLayout>
+                    <Component {...pageProps} />
+                  </BaseLayout>
+                )}
+                {Component.displayName === 'resume' && (
                   <Component {...pageProps} />
-                </BaseLayout>
+                )}
               </main>
             </motion.div>
           </AnimatePresence>

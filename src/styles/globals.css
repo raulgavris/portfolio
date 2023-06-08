@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 #root {
   margin: 0;
@@ -12,10 +12,11 @@
 
 html,
 body {
-  font-family: var(--font-roboto), var(--font-spacemono), 'Roboto', 'Space Mono';
-  overflow: hidden;
+  font-family: var(--font-roboto), var(--font-spacemono), var(--font-lato), 'Roboto', 'Space Mono', 'Lato';
   background: #1d2021;
   cursor: none;
+  height: 100%;
+  width: 100%;
 }
 
 .cursor {
