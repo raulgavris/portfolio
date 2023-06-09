@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { OpenSvg, GitSvg } from './Svg'
 
 const ProjectShowcase = ({
@@ -9,6 +10,7 @@ const ProjectShowcase = ({
   projectUrl,
 }) => {
   const newDescription = description.split(';')
+  const router = useRouter()
 
   return (
     <>
@@ -25,7 +27,12 @@ const ProjectShowcase = ({
             />
           </a>
         </div>
-        <div className="absolute right-16 top-[30%] h-auto max-h-[300px] w-1/2 rounded-[10px] p-10 text-sm shadow-basic drop-shadow-basic dark:bg-teal dark:text-offWhite">
+        <div
+          onClick={() => {
+            router.push('/portfolio/1')
+          }}
+          className="mousehover absolute right-16 top-[30%] h-auto max-h-[300px] w-1/2 rounded-[10px] p-10 text-sm shadow-basic drop-shadow-basic dark:bg-teal dark:text-offWhite"
+        >
           {newDescription.map((item) => {
             if (item) {
               return (

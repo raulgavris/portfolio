@@ -23,14 +23,6 @@ const AboutSection = ({ containerRef, aboutRef }: AboutSectionProps) => {
   const box1 = useRef()
   const box2 = useRef()
 
-  const [showClients, setShowClients] = useState(false)
-
-  const handleShowClients = () => {
-    setShowClients(!showClients)
-  }
-
-  const clientsModal = useRef()
-
   useEffect(() => {
     const animate = (ref, config) => {
       gsap.fromTo(ref.current, config.from, {
@@ -108,20 +100,26 @@ const AboutSection = ({ containerRef, aboutRef }: AboutSectionProps) => {
       ref={aboutRef}
       data-path="/about"
     >
-      {showClients && (
-        <ClientsModal setShowClients={setShowClients} pageRef={clientsModal} />
-      )}
       <div className="relative h-full max-h-[1000px] w-full max-w-[1500px]">
-        <div className="absolute -left-[70px] top-[35%]">
-          <div className="flex -rotate-90 flex-row items-center justify-center gap-10 text-center text-xs dark:text-lightGray">
-            <InfoItem className="" title="SATISFACTION CLIENTS" value="100%" />
-            <InfoItem
-              title="CLIENTS ON WORLDWIDE"
-              value="8"
-              onClick={handleShowClients}
-              className="mousehover hover:cursor-pointer"
-            />
-            <InfoItem className="" title="PROJECTS DONE" value="24" />
+        <div
+          onClick={() => {
+            router.push('/companies')
+          }}
+          className="absolute -left-[70px] top-[35%]"
+        >
+          <div className="mousehover group flex flex-col items-center justify-center hover:cursor-pointer">
+            <div className="animate-bounce text-xs text-lightGray group-hover:animate-spin">
+              click me!
+            </div>
+            <div className="flex -rotate-90 flex-row items-center justify-center gap-10 text-center text-xs dark:text-lightGray">
+              <InfoItem
+                className=""
+                title="SATISFACTION CLIENTS"
+                value="100%"
+              />
+              <InfoItem className="" title="CLIENTS ON WORLDWIDE" value="8" />
+              <InfoItem className="" title="PROJECTS DONE" value="24" />
+            </div>
           </div>
         </div>
         <div className="absolute left-[20%] top-[15%] dark:bg-darkBlack">
