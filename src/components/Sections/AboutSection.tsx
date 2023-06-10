@@ -7,10 +7,10 @@ import { useWindowSize } from '@/lib/hooks/useWindowSize'
 const InfoItem = ({ title, value, onClick, className }: InfoItemProps) => (
   <div
     onClick={onClick}
-    className={`${className} flex h-40 w-24 flex-col items-center justify-center font-raulmono text-xs font-bold sm:text-sm`}
+    className={`${className} flex h-40 w-10 flex-col items-center justify-center font-raulmono text-xs font-bold sm:w-24 sm:text-sm`}
   >
     <span className="mb-2 dark:text-red">
-      <InfoSvg className="h-4 w-24 rotate-90" />
+      <InfoSvg className="h-4 w-10 rotate-90 sm:w-24" />
     </span>
     <div className="whitespace-break-spaces text-center">{title}</div>
     <div>{value}</div>
@@ -223,11 +223,11 @@ const AboutSection = ({ containerRef, aboutRef }: AboutSectionProps) => {
                 </div>
                 <div
                   ref={box1}
-                  className="absolute bottom-0 left-10 z-10 h-[500px] w-[350px] border-2 opacity-0 shadow-basic drop-shadow-basic dark:border-lightGray dark:bg-darkGray max-[640px]:bottom-[170px]"
+                  className="absolute bottom-0 left-10 z-10 h-[500px] w-[350px] border-2 opacity-0 shadow-basic drop-shadow-basic dark:border-lightGray dark:bg-darkGray max-[640px]:bottom-[185px]"
                 ></div>
                 <div
                   ref={box2}
-                  className="absolute -bottom-10 left-20 z-0  h-[500px] w-[350px] border-2 opacity-0 shadow-basic drop-shadow-basic dark:border-lightGray dark:bg-darkGray max-[640px]:bottom-[600px]"
+                  className="absolute -bottom-10 left-20 z-0  h-[500px] w-[350px] border-2 opacity-0 shadow-basic drop-shadow-basic dark:border-lightGray dark:bg-darkGray max-[640px]:bottom-[620px] max-[640px]:left-[10px]"
                 ></div>
               </div>
             </div>
