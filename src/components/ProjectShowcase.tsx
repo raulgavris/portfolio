@@ -33,7 +33,7 @@ const ProjectShowcase = ({
           onClick={() => {
             router.push(`/portfolio/${id}`)
           }}
-          className="mousehover absolute right-16 top-[30%] h-auto max-h-[300px] w-1/2 rounded-[10px] p-10 text-sm shadow-basic drop-shadow-basic dark:bg-teal dark:text-offWhite"
+          className="mousehover absolute right-16 top-[30%] h-auto max-h-[300px] w-1/2 overflow-hidden rounded-[10px] p-10 text-sm shadow-basic drop-shadow-basic dark:bg-teal dark:text-offWhite"
         >
           {newDescription.map((item) => {
             if (item) {
