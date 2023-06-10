@@ -1,14 +1,22 @@
-import { LeftArrowSvg } from '@/components/Svg'
+import Button1 from '@/components/Button1'
+import { LeftArrowSvg, LikesSvg, ViewsSvg } from '@/components/Svg'
 import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 
 const BlogDetail = () => {
   const router = useRouter()
 
   const { id } = router.query
 
-  console.log('blog', id)
+  const [email, setEmail] = useState('')
 
-  return (
+  useEffect(() => {
+    if (parseInt(id as string) <= 0 || parseInt(id as string) >= 7) {
+      router.push('/blog')
+    }
+  }, [id, router])
+
+  return parseInt(id as string) >= 1 || parseInt(id as string) <= 6 ? (
     <div className="relative flex h-full min-h-screen w-screen flex-col items-center justify-start gap-4 overflow-y-scroll py-32">
       <div className="flex flex-row items-center justify-center gap-10 font-raulmono text-4xl font-bold text-lightGray">
         <div className="relative">Blog Title {id}</div>
@@ -96,6 +104,85 @@ const BlogDetail = () => {
         eu ligula lacinia efficitur eu at velit. Proin mattis non dui ut
         dignissim.
       </div>
+      <div className="flex w-full max-w-[700px] flex-row items-center justify-between">
+        <div className="flex flex-col items-start justify-start gap-4 text-xl text-lightGray">
+          <div>That's all,</div>
+          <div>Raul</div>
+        </div>
+        <div className="flex flex-col items-start justify-start">
+          <div className="flex w-24 flex-row items-center justify-start gap-2">
+            <ViewsSvg className="mb-1 h-3.5 w-3.5 fill-softOrange" />
+            <div className="text-xs text-lightGray">views:</div>
+            <div className="text-xs text-red">26</div>
+          </div>
+          <div className="mt-1 flex w-24 flex-row items-center justify-start gap-2">
+            <LikesSvg className="mb-1 h-3.5 w-3.5 fill-softGreen" />
+            <div className="text-xs tracking-[1px] text-lightGray">likes:</div>
+            <div className="text-xs text-red">18</div>
+          </div>
+        </div>
+      </div>
+      <div className="flex w-full max-w-[700px] flex-row items-center justify-between">
+        <div
+          onClick={() => {
+            router.push(`/blog/${parseInt(id as string) - 1}`)
+          }}
+          className="mousehover group flex flex-row items-center justify-center gap-2 hover:cursor-pointer"
+        >
+          {!(parseInt(id as string) <= 1) && (
+            <>
+              <LeftArrowSvg className="fill-white transition-all duration-200 group-hover:-translate-x-1" />
+              <button className="text-xl text-lightGray">
+                Blog Title {parseInt(id as string) - 1}
+              </button>
+            </>
+          )}
+        </div>
+        <div
+          onClick={() => {
+            router.push(`/blog/${parseInt(id as string) + 1}`)
+          }}
+          className="mousehover group flex flex-row items-center justify-center gap-2 hover:cursor-pointer"
+        >
+          {!(parseInt(id as string) >= 6) && (
+            <>
+              <button className="text-xl text-lightGray">
+                Blog Title {parseInt(id as string) + 1}
+              </button>
+              <LeftArrowSvg className="rotate-180 fill-white transition-all duration-200 group-hover:translate-x-1" />
+            </>
+          )}
+        </div>
+      </div>
+      <div className="flex max-w-[500px] flex-col items-center justify-center gap-8">
+        <div className="font-raulmono text-xs text-lightGray">
+          Subscribe to my mailing list to get the latest blog posts
+        </div>
+        <div className="mousehover relative mx-auto flex min-w-[350px] flex-row items-center justify-center gap-4">
+          <input
+            maxLength={50}
+            required
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value)
+            }}
+            id="email"
+            name="email"
+            type="text"
+            placeholder="Email Address"
+            className={`peer relative w-full rounded-md px-4 py-3 text-sm placeholder-transparent drop-shadow-basic placeholder:text-xs focus:outline-none focus:ring-opacity-75 dark:bg-darkGray`}
+          />
+          <label
+            htmlFor="email"
+            className="pointer-events-none absolute -top-7 left-2 w-full text-sm opacity-100 transition-all duration-500 text-shadow-text peer-placeholder-shown:left-4 peer-placeholder-shown:top-[14px] peer-placeholder-shown:font-raulmono peer-placeholder-shown:text-xs peer-placeholder-shown:text-lightGray peer-placeholder-shown:opacity-50"
+          >
+            Email Address
+          </label>
+          <div className="mousehover">
+            <Button1>Subscribe</Button1>
+          </div>
+        </div>
+      </div>
       <button
         className="mousehover group flex flex-row items-center justify-start gap-2"
         onClick={() => {
@@ -105,7 +192,12 @@ const BlogDetail = () => {
         <LeftArrowSvg className="fill-white transition-all duration-200 group-hover:-translate-x-1" />
         <span className="font-raulmono text-base">Go back to Blog.</span>
       </button>
+      <div className="flex w-full max-w-[700px] flex-row items-start justify-start text-xl text-lightGray">
+        Comments:
+      </div>
     </div>
+  ) : (
+    <></>
   )
 }
 

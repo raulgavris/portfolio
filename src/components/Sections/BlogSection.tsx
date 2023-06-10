@@ -8,7 +8,16 @@ const BlogSection = ({ containerRef, blogRef }: BlogSectionProps) => {
 
   const [search, setSearch] = useState('')
   const [pageSelected, setPageSelected] = useState(1)
-  const [maxPages, setMaxPages] = useState(6)
+  const [itemsPerPage] = useState(6)
+  const [items, setItems] = useState([
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+  ])
+
+  const indexOfLastItem = pageSelected * itemsPerPage
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage
+  const currentItems = items.slice(indexOfFirstItem, indexOfLastItem)
+
+  const maxPages = Math.ceil(items.length / itemsPerPage)
 
   const nextPage = () => {
     const isLastSlide = pageSelected === maxPages
@@ -48,12 +57,9 @@ const BlogSection = ({ containerRef, blogRef }: BlogSectionProps) => {
     >
       <div className="flex h-full w-full flex-col items-center justify-center gap-10 px-96 py-24">
         <div className="flex h-full w-full min-w-[1500px] flex-row flex-wrap items-center justify-center gap-10">
-          <BlogCard id={1} />
-          <BlogCard id={2} />
-          <BlogCard id={3} />
-          <BlogCard id={4} />
-          <BlogCard id={5} />
-          <BlogCard id={6} />
+          {currentItems.map((item) => {
+            return <BlogCard key={Math.random()} id={item} />
+          })}
         </div>
         <div className="relative flex w-full flex-col items-center justify-center gap-0">
           <div className="mousehover relative mx-auto flex w-1/3 min-w-[350px] flex-row items-center justify-center">
