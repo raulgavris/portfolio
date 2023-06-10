@@ -10,12 +10,26 @@ const BlogSection = ({ containerRef, blogRef }: BlogSectionProps) => {
   const [pageSelected, setPageSelected] = useState(1)
   const [itemsPerPage] = useState(6)
   const [items, setItems] = useState([
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+    { id: 1, title: '12' },
+    { id: 2, title: '2' },
+    { id: 3, title: '3' },
+    { id: 4, title: '4' },
+    { id: 5, title: '5' },
+    { id: 6, title: '6' },
+    { id: 7, title: '7' },
+    { id: 8, title: '8' },
+    { id: 9, title: '9' },
   ])
+
+  const results = !search
+    ? items
+    : items.filter((item) =>
+        item.title.toLowerCase().includes(search.toLocaleLowerCase()),
+      )
 
   const indexOfLastItem = pageSelected * itemsPerPage
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
-  const currentItems = items.slice(indexOfFirstItem, indexOfLastItem)
+  const currentItems = results.slice(indexOfFirstItem, indexOfLastItem)
 
   const maxPages = Math.ceil(items.length / itemsPerPage)
 
@@ -35,6 +49,12 @@ const BlogSection = ({ containerRef, blogRef }: BlogSectionProps) => {
   const goToSlide = (index) => {
     setPageSelected(index)
   }
+
+  useEffect(() => {
+    if (search && search !== '') {
+      setPageSelected(1)
+    }
+  }, [search])
 
   useEffect(() => {
     const targetElement = document.getElementById('blog')
@@ -58,7 +78,7 @@ const BlogSection = ({ containerRef, blogRef }: BlogSectionProps) => {
       <div className="flex h-full w-full flex-col items-center justify-center gap-10 px-96 py-24">
         <div className="flex h-full w-full min-w-[1500px] flex-row flex-wrap items-center justify-center gap-10">
           {currentItems.map((item) => {
-            return <BlogCard key={Math.random()} id={item} />
+            return <BlogCard key={Math.random()} id={item.id} />
           })}
         </div>
         <div className="relative flex w-full flex-col items-center justify-center gap-0">
