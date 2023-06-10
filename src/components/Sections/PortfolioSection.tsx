@@ -167,7 +167,7 @@ const PortfolioSection = ({
   return (
     <div
       id="portfolio"
-      className="h-screen w-screen"
+      className="h-full min-h-screen w-screen"
       ref={portfolioRef}
       data-path="/portfolio"
     >
@@ -181,6 +181,7 @@ const PortfolioSection = ({
         </div>
         <div className="relative col-start-2 col-end-11 row-start-3 row-end-12 ml-10">
           <ProjectShowcase
+            id={data[currentIndex].id}
             projectName={data[currentIndex].name}
             imageUrl={data[currentIndex].imageUrl}
             description={data[currentIndex].description}

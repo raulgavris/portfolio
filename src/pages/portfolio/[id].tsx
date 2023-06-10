@@ -10,8 +10,12 @@ import {
 const ProjectDetail = () => {
   const router = useRouter()
 
+  const { id } = router.query
+
+  console.log('project', id)
+
   return (
-    <div className="relative flex h-screen w-screen flex-col items-center justify-center gap-10 p-20">
+    <div className="relative flex h-full min-h-screen w-screen flex-col items-center justify-center gap-10 py-20 scrollbar-hide">
       <div className="mt-16 flex h-full w-full max-w-[750px] flex-col items-center justify-center gap-4">
         <div className="flex flex-row items-center justify-center gap-10 font-raulmono text-4xl text-lightGray">
           <div className="relative">

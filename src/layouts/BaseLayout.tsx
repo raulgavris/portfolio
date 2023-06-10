@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTheme } from 'next-themes'
+
 import Navigation from '@/components/Navigation'
 import {
   GitSvg,
@@ -56,7 +57,7 @@ export const BaseLayout = ({ children }: BaseLayoutProps) => {
 
   return (
     <>
-      <div className="relative m-0 h-full w-full border-0 p-0">
+      <div className="relative m-0 h-full min-h-screen w-screen border-0 p-0 scrollbar-hide">
         {/* <button
           onClick={() =>
             theme == 'dark' ? setTheme('light') : setTheme('dark')
@@ -65,8 +66,12 @@ export const BaseLayout = ({ children }: BaseLayoutProps) => {
         >
           Toggle Mode
         </button> */}
-        <Navigation />
-        {children}
+        <div className="relative flex h-full w-full flex-col items-start justify-start">
+          <Navigation />
+          <div className="relative">
+            <div className="relative z-10 h-full w-full">{children}</div>
+          </div>
+        </div>
         <div className="fixed bottom-0 right-0 z-10 max-w-[1500px]">
           <span className="mousehover absolute bottom-0 right-10 block h-28 w-0.5 dark:bg-lightGray sm:right-40">
             <span className="absolute -right-[113px] bottom-56 rotate-90 font-raulmono text-[16px] font-bold leading-[24px] transition-all duration-200 text-shadow-text hover:-translate-y-2 dark:text-lightGray dark:hover:text-teal">

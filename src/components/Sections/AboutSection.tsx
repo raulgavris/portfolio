@@ -96,7 +96,7 @@ const AboutSection = ({ containerRef, aboutRef }: AboutSectionProps) => {
   return (
     <div
       id="about"
-      className="h-screen w-screen"
+      className="h-full min-h-screen w-screen"
       ref={aboutRef}
       data-path="/about"
     >

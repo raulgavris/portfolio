@@ -1,7 +1,9 @@
 import { useRouter } from 'next/router'
-import { OpenSvg, GitSvg } from './Svg'
+import { OpenSvg, GitSvg, LinkSvg } from './Svg'
+import Link from 'next/link'
 
 const ProjectShowcase = ({
+  id,
   projectName,
   imageUrl,
   description,
@@ -29,7 +31,7 @@ const ProjectShowcase = ({
         </div>
         <div
           onClick={() => {
-            router.push('/portfolio/1')
+            router.push(`/portfolio/${id}`)
           }}
           className="mousehover absolute right-16 top-[30%] h-auto max-h-[300px] w-1/2 rounded-[10px] p-10 text-sm shadow-basic drop-shadow-basic dark:bg-teal dark:text-offWhite"
         >
@@ -66,6 +68,12 @@ const ProjectShowcase = ({
               >
                 <OpenSvg className="fill-lightGray hover:fill-teal" />
               </a>
+              <Link
+                href={`/portfolio/${id}`}
+                className="mousehover opacity-90 drop-shadow-basic transition-all duration-200 hover:scale-125 hover:cursor-pointer hover:opacity-100 active:scale-100"
+              >
+                <LinkSvg className="fill-lightGray hover:fill-teal" />
+              </Link>
             </div>
           </div>
         </div>

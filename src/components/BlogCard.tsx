@@ -1,11 +1,19 @@
+import { useRouter } from 'next/router'
 import { LikesSvg, ViewsSvg } from './Svg'
 
-const Button1 = () => {
+const BlogCard = ({ id }) => {
+  const router = useRouter()
+
   return (
-    <div className="flex h-[200px] w-[500px] flex-col items-start justify-between rounded-xl bg-darkGray px-6 py-4 drop-shadow-basic">
+    <div
+      onClick={() => {
+        router.push(`/blog/${id}`)
+      }}
+      className="mousehover flex h-[200px] w-[500px] flex-col items-start justify-between rounded-xl bg-darkGray px-6 py-4 drop-shadow-basic hover:cursor-pointer"
+    >
       <div className="flex w-full flex-row items-center justify-between">
         <div className="font-raulmono text-3xl text-lightGray">
-          Blog Title 1
+          Blog Title {id}
         </div>
         <div className="font-raulmono text-xs text-lightGray">5 mins read</div>
       </div>
@@ -59,4 +67,4 @@ const Button1 = () => {
   )
 }
 
-export default Button1
+export default BlogCard

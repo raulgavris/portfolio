@@ -43,7 +43,7 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
   return (
     <div
       id="contact"
-      className="relative h-screen w-screen"
+      className="relative h-full min-h-screen w-screen"
       ref={contactRef}
       data-path="/contact"
     >

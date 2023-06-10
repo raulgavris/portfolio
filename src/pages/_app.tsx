@@ -37,9 +37,6 @@ const lato = Lato({
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
-  console.log('component', Component.displayName)
-  console.log('pageprops', pageProps)
-
   useEffect(() => {
     const setupCursor = () => {
       const cursor: HTMLElement = document.querySelector('.cursor')
@@ -136,7 +133,7 @@ export default function App({ Component, pageProps }: AppProps) {
               }}
             >
               <main
-                className={`${roboto.variable} ${space_mono.variable} ${lato.variable} flex items-center justify-center font-raulroboto`}
+                className={`${roboto.variable} ${space_mono.variable} ${lato.variable} flex items-center justify-center font-raulroboto scrollbar-hide`}
               >
                 {Component.displayName !== 'resume' && (
                   <BaseLayout>

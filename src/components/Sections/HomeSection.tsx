@@ -30,7 +30,7 @@ const HomeSection = ({ containerRef, homeRef }: HomeSectionProps) => {
   return (
     <div
       id="home"
-      className="h-screen w-screen"
+      className="h-full min-h-screen w-screen"
       ref={homeRef}
       data-path="/home"
     >

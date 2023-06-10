@@ -88,7 +88,7 @@ const SinglePageApp: React.FC = () => {
   return (
     <div
       id="scrollerContainer"
-      className="h-screen overflow-y-scroll scrollbar-hide"
+      className="h-screen min-h-screen overflow-x-hidden overflow-y-scroll scrollbar-hide"
       ref={containerRef}
     >
       <TimelineNavigation

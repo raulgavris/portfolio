@@ -42,18 +42,18 @@ const BlogSection = ({ containerRef, blogRef }: BlogSectionProps) => {
   return (
     <div
       id="blog"
-      className="h-screen w-screen"
+      className="h-full min-h-screen w-screen"
       ref={blogRef}
       data-path="/blog"
     >
       <div className="flex h-full w-full flex-col items-center justify-center gap-10 px-96 py-24">
         <div className="flex h-full w-full min-w-[1500px] flex-row flex-wrap items-center justify-center gap-10">
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
+          <BlogCard id={1} />
+          <BlogCard id={2} />
+          <BlogCard id={3} />
+          <BlogCard id={4} />
+          <BlogCard id={5} />
+          <BlogCard id={6} />
         </div>
         <div className="relative flex w-full flex-col items-center justify-center gap-0">
           <div className="mousehover relative mx-auto flex w-1/3 min-w-[350px] flex-row items-center justify-center">
