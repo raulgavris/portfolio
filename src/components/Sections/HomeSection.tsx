@@ -35,7 +35,7 @@ const HomeSection = ({ containerRef, homeRef }: HomeSectionProps) => {
       data-path="/home"
     >
       <div className="flex h-5/6 w-full max-w-7xl flex-row items-start justify-start">
-        <div className="relative flex h-full w-full flex-col items-start justify-center max-[2000px]:pl-40 max-[2000px]:pt-32 max-[980px]:pl-8 max-[728px]:gap-10 max-[728px]:pt-28">
+        <div className="relative flex h-full w-full flex-col items-start justify-center max-[2000px]:pl-40 max-[2000px]:pt-60 max-[980px]:pl-8 max-[728px]:gap-10 max-[728px]:pt-28">
           <div className="relative flex flex-row">
             <div className="flex flex-col">
               <div className="font-raulmono text-[25px] font-normal leading-[37px] text-shadow-text dark:text-red">
