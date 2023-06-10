@@ -91,18 +91,20 @@ const SinglePageApp: React.FC = () => {
       className="h-screen min-h-screen overflow-x-hidden overflow-y-scroll scrollbar-hide"
       ref={containerRef}
     >
-      <TimelineNavigation
-        activeSection={activeSection}
-        onCircleClick={scrollToSection}
-      />
-      <HomeSection homeRef={homeRef} containerRef={containerRef} />
-      <AboutSection aboutRef={aboutRef} containerRef={containerRef} />
-      <PortfolioSection
-        portfolioRef={portfolioRef}
-        containerRef={containerRef}
-      />
-      <BlogSection blogRef={blogRef} containerRef={containerRef} />
-      <ContactSection contactRef={contactRef} containerRef={containerRef} />
+      <div className="flex flex-col gap-10">
+        <TimelineNavigation
+          activeSection={activeSection}
+          onCircleClick={scrollToSection}
+        />
+        <HomeSection homeRef={homeRef} containerRef={containerRef} />
+        <AboutSection aboutRef={aboutRef} containerRef={containerRef} />
+        <PortfolioSection
+          portfolioRef={portfolioRef}
+          containerRef={containerRef}
+        />
+        <BlogSection blogRef={blogRef} containerRef={containerRef} />
+        <ContactSection contactRef={contactRef} containerRef={containerRef} />
+      </div>
     </div>
   )
 }

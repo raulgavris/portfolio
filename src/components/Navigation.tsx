@@ -39,7 +39,7 @@ const Navigation = () => {
   }, [pathname])
 
   return width > 770 ? (
-    <div className="fixed left-0 top-0 z-[999] mx-auto flex h-24 w-screen flex-row items-center justify-between px-16 dark:bg-darkBlack">
+    <div className="fixed left-0 top-0 z-[999] mx-auto flex h-24 w-screen flex-row items-center justify-around px-16 dark:bg-darkBlack max-[2000px]:justify-between">
       <div className="item-center flex flex-row items-center justify-center gap-4">
         <div
           className="mousehover group relative h-14 w-14 active:scale-110 dark:text-lightGray dark:hover:text-offWhite"
@@ -87,7 +87,7 @@ const Navigation = () => {
       )}
       {showNavigation && (
         <>
-          <div className="absolute right-0 z-[99] h-screen w-3/6 shadow dark:bg-darkGray sm:w-2/6">
+          <div className="absolute right-0 z-[999] h-screen w-3/6 shadow dark:bg-darkGray sm:w-2/6">
             <Hamburger setShowNavigation={setShowNavigation} value={false} />
             <div className="item-center items-left mt-32 flex flex-row justify-center gap-4">
               <div

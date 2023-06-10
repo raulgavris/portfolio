@@ -4,7 +4,7 @@ const Hamburger = ({ setShowNavigation, value }) => {
       onClick={() => {
         setShowNavigation(value)
       }}
-      className="fixed right-10 top-10 z-10 "
+      className="fixed right-10 top-10 z-[999] "
     >
       <div className="group flex h-10 w-10 flex-col items-end justify-end gap-2">
         <span className="relative block h-0.5 w-10 dark:bg-lightGray"></span>

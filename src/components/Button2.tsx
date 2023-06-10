@@ -1,5 +1,8 @@
 const Button2 = ({ children, active }: Button2Props) => {
-  const newActive = active.replace('/', '')
+  let newActive: string
+  if (active) {
+    newActive = active.replace('/', '')
+  }
   const newChildren = children.toString().toLowerCase()
 
   return (
