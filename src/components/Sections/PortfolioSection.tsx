@@ -171,7 +171,7 @@ const PortfolioSection = ({
       ref={portfolioRef}
       data-path="/portfolio"
     >
-      <div className="max-w-9xl grid h-full w-full grid-cols-12 grid-rows-12">
+      <div className="max-w-9xl grid h-full w-full grid-cols-12 grid-rows-12 gap-10">
         <div className="col-start-2 col-end-6 row-start-3 row-end-3">
           <div className="flex flex-row items-start justify-start">
             <div className="ml-10 font-raulmono text-3xl dark:text-lightGray">
