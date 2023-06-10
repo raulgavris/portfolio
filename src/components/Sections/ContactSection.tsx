@@ -43,17 +43,17 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
   return (
     <div
       id="contact"
-      className="relative h-full min-h-screen w-screen"
+      className="relative h-full min-h-screen w-screen max-[640px]:pb-32"
       ref={contactRef}
       data-path="/contact"
     >
-      <div className="relative mx-auto flex w-full max-w-6xl flex-row items-start justify-center text-lightGray">
-        <div className="mt-52 flex flex-row items-start justify-center divide-x divide-lightGray px-8">
-          <div className="flex w-1/2 flex-col items-start justify-start gap-2 px-6 py-0">
+      <div className="relative mx-auto flex w-full max-w-6xl flex-col items-start justify-center gap-4 text-lightGray sm:flex-row sm:gap-0">
+        <div className="mt-52 flex w-full flex-col items-start justify-center gap-4 divide-lightGray px-8 sm:flex-row sm:gap-0 sm:divide-x">
+          <div className="flex w-full flex-col items-start justify-start gap-2 px-6 py-0 sm:w-1/2">
             <h1 className="font-raulmono text-4xl font-normal">
               Let's Connect!
             </h1>
-            <p className="pb-4 pt-2 text-xl font-normal">
+            <p className="w-full pb-4 pt-2 text-xl font-normal">
               Interested in my software engineering work? Let's get in touch!
               Fill out the form below or reach out through my contact
               information.
@@ -63,7 +63,7 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
             <div className="flex flex-col gap-4">
               <p className="group flex w-52 items-center justify-start">
                 <PhoneSvg className="mr-5 h-6 w-6 drop-shadow-basic group-hover:fill-teal" />
-                <span className="mousehover font-raulmono text-xl transition-all duration-150 text-shadow-text group-hover:translate-x-2 group-hover:text-teal ">
+                <span className="mousehover font-raulmono text-sm transition-all duration-150 text-shadow-text group-hover:translate-x-2 group-hover:text-teal sm:text-xl ">
                   +40758585407
                 </span>
               </p>
@@ -71,7 +71,7 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
                 <EmailSvg className="mr-5 mt-1 h-6 w-6 fill-lightGray drop-shadow-basic group-hover:fill-teal" />
                 <a
                   href="mailto:rg.raulgavris@gmail.com"
-                  className="mousehover font-raulmono text-xl transition-all duration-150 text-shadow-text group-hover:translate-x-2 group-hover:text-teal"
+                  className="mousehover font-raulmono text-sm transition-all duration-150 text-shadow-text group-hover:translate-x-2 group-hover:text-teal sm:text-xl"
                 >
                   rg.raulgavris@gmail.com
                 </a>
@@ -81,7 +81,7 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
           <form
             noValidate
             onSubmit={handleSubmit}
-            className="ng-untouched ng-pristine ng-valid flex w-1/2 flex-col gap-8 py-6 md:px-6 md:py-0"
+            className="ng-untouched ng-pristine ng-valid flex w-full flex-col gap-8 py-6 sm:w-1/2 md:px-6 md:py-0"
           >
             <div className="mousehover relative">
               <input
@@ -164,13 +164,13 @@ const ContactSection = ({ containerRef, contactRef }: ContactSectionProps) => {
                 Message
               </label>
             </div>
-            <div className="mousehover">
+            <div className="mousehover max-[640px]:flex max-[640px]:flex-row max-[640px]:items-center max-[640px]:justify-center">
               <Button1>SUBMIT</Button1>
             </div>
           </form>
         </div>
       </div>
-      <div className="absolute bottom-[50px] flex w-full flex-row items-center justify-center gap-4 font-raulmono text-[14px] font-bold leading-[21px] text-lightGray drop-shadow-basic text-shadow-text">
+      <div className="absolute bottom-[50px] flex w-full flex-col items-center justify-center gap-4 font-raulmono text-xs font-bold text-lightGray drop-shadow-basic text-shadow-text sm:flex-row sm:text-[14px] sm:leading-[21px]">
         <span>Copyright</span>
         <CopyRightSvg className="fill-lightGray" />
         <span>2023 Raul Gavriș - Full Stack Engineer</span>
