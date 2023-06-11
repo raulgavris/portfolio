@@ -17,7 +17,7 @@ const BlogDetail = () => {
   }, [id, router])
 
   return parseInt(id as string) >= 1 || parseInt(id as string) <= 6 ? (
-    <div className="relative flex h-full min-h-screen w-screen flex-col items-center justify-start gap-4 overflow-y-scroll py-32">
+    <div className="relative flex h-full min-h-screen w-screen flex-col items-center justify-start gap-4 overflow-y-scroll px-10 py-32 sm:px-0">
       <div className="flex flex-row items-center justify-center gap-10 font-raulmono text-4xl font-bold text-lightGray">
         <div className="relative">Blog Title {id}</div>
       </div>
@@ -155,7 +155,7 @@ const BlogDetail = () => {
         </div>
       </div>
       <div className="flex max-w-[500px] flex-col items-center justify-center gap-8">
-        <div className="font-raulmono text-xs text-lightGray">
+        <div className="text-center font-raulmono text-xs text-lightGray">
           Subscribe to my mailing list to get the latest blog posts
         </div>
         <div className="mousehover relative mx-auto flex min-w-[350px] flex-row items-center justify-center gap-4">
