@@ -1,7 +1,9 @@
 import { useRouter } from 'next/router'
 import { LikesSvg, ViewsSvg } from './Svg'
+import { useWindowSize } from '@/lib/hooks/useWindowSize'
 
 const BlogCard = ({ id }) => {
+  const [width] = useWindowSize()
   const router = useRouter()
 
   return (
@@ -9,13 +11,15 @@ const BlogCard = ({ id }) => {
       onClick={() => {
         router.push(`/blog/${id}`)
       }}
-      className="mousehover flex h-[200px] w-[500px] flex-col items-start justify-between rounded-xl bg-darkGray px-6 py-4 drop-shadow-basic hover:cursor-pointer"
+      className="mousehover flex h-[300px] w-[300px] flex-col flex-wrap items-start justify-between rounded-xl bg-darkGray px-6 py-4 drop-shadow-basic hover:cursor-pointer sm:h-[200px] sm:w-[500px]"
     >
       <div className="flex w-full flex-row items-center justify-between">
         <div className="font-raulmono text-3xl text-lightGray">
           Blog Title {id}
         </div>
-        <div className="font-raulmono text-xs text-lightGray">5 mins read</div>
+        <div className="text-right font-raulmono text-xs text-lightGray">
+          5 mins read
+        </div>
       </div>
       <div className="w-10/12 text-xs text-offWhite">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dictum,
@@ -47,21 +51,23 @@ const BlogCard = ({ id }) => {
             FE
           </div>
         </div>
-        <div className="flex flex-row items-center justify-start gap-1">
-          <div className="flex flex-col items-end justify-end">
-            <div className="font-raulmono text-xs text-lightGray">
-              Raul Gavriș
+        {width > 400 && (
+          <div className="flex flex-row items-center justify-start gap-1">
+            <div className="flex flex-col items-end justify-end">
+              <div className="font-raulmono text-xs text-lightGray">
+                Raul Gavriș
+              </div>
+              <div className="font-raulmono text-xs text-teal">
+                06-04-2023 22:24
+              </div>
             </div>
-            <div className="font-raulmono text-xs text-teal">
-              06-04-2023 22:24
-            </div>
+            <img
+              alt="blog_image"
+              src="/hero-large.png"
+              className="m-0 h-10 w-10 rounded-full p-0 shadow-inner drop-shadow-basic"
+            />
           </div>
-          <img
-            alt="blog_image"
-            src="/hero-large.png"
-            className="m-0 h-10 w-10 rounded-full p-0 shadow-inner drop-shadow-basic"
-          />
-        </div>
+        )}
       </div>
     </div>
   )

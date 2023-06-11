@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import BlogCard from '@/components/BlogCard'
 import { ChevronSvg } from '@/components/Svg'
+import { useWindowSize } from '@/lib/hooks/useWindowSize'
 
 const BlogSection = ({ containerRef, blogRef }: BlogSectionProps) => {
   const router = useRouter()
 
+  const [width] = useWindowSize()
+
   const [search, setSearch] = useState('')
   const [pageSelected, setPageSelected] = useState(1)
-  const [itemsPerPage] = useState(6)
+  const [itemsPerPage, setItemsPerPage] = useState(6)
   const [items, setItems] = useState([
     { id: 1, title: '12' },
     { id: 2, title: '2' },
@@ -68,6 +71,14 @@ const BlogSection = ({ containerRef, blogRef }: BlogSectionProps) => {
     }
   }, [containerRef, router.route])
 
+  useEffect(() => {
+    if (width < 640) {
+      setItemsPerPage(3)
+    } else {
+      setItemsPerPage(6)
+    }
+  }, [indexOfFirstItem, indexOfLastItem, results, width])
+
   return (
     <div
       id="blog"
@@ -75,14 +86,14 @@ const BlogSection = ({ containerRef, blogRef }: BlogSectionProps) => {
       ref={blogRef}
       data-path="/blog"
     >
-      <div className="flex h-full w-full flex-col items-center justify-center gap-10 px-96 py-24">
-        <div className="flex h-full w-full min-w-[1500px] flex-row flex-wrap items-center justify-center gap-10">
+      <div className="flex h-full flex-col items-center justify-center gap-10 sm:w-full sm:px-96 sm:py-24">
+        <div className="flex h-full min-w-[1500px] flex-col flex-wrap items-center justify-center gap-10 sm:w-full sm:flex-row">
           {currentItems.map((item) => {
             return <BlogCard key={Math.random()} id={item.id} />
           })}
         </div>
         <div className="relative flex w-full flex-col items-center justify-center gap-0">
-          <div className="mousehover relative mx-auto flex w-1/3 min-w-[350px] flex-row items-center justify-center">
+          <div className="mousehover relative flex min-w-[300px] flex-row items-center justify-center sm:mx-auto sm:w-1/3 sm:min-w-[350px]">
             <input
               maxLength={50}
               required
