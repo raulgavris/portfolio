@@ -8,7 +8,7 @@ const Companies = () => {
   return (
     <div className="h-screen w-screen">
       <div className="relative flex h-full w-full flex-col items-center justify-center gap-6">
-        <div className="max-w-[800px] text-center font-raulmono text-3xl text-lightGray">
+        <div className="max-w-[800px] text-center font-raulmono text-xl text-lightGray sm:text-3xl">
           I'm proud to have collaborated with some awesome companies:
         </div>
         <ClientsModal />

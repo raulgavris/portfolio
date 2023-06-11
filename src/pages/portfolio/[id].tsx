@@ -15,9 +15,9 @@ const ProjectDetail = () => {
   console.log('project', id)
 
   return (
-    <div className="relative flex h-full min-h-screen w-screen flex-col items-center justify-center gap-10 py-20 scrollbar-hide">
-      <div className="mt-16 flex h-full w-full max-w-[750px] flex-col items-center justify-center gap-4">
-        <div className="flex flex-row items-center justify-center gap-10 font-raulmono text-4xl text-lightGray">
+    <div className="relative flex h-full min-h-screen w-full min-w-[100vw] flex-col items-center justify-center gap-10 py-20 scrollbar-hide">
+      <div className="mt-16 flex h-full w-full max-w-[500px] flex-col items-center justify-center gap-4 sm:max-w-[750px]">
+        <div className="flex flex-row items-center justify-center gap-10 font-raulmono text-2xl text-lightGray sm:text-4xl">
           <div className="relative">
             Company
             <DevNestSvg className="absolute -left-8 -top-12 h-20 w-20" />
@@ -28,7 +28,7 @@ const ProjectDetail = () => {
             <TesSvg className="absolute -right-8 -top-12 h-20 w-20" />
           </div>
         </div>
-        <div className="ml-[60px] flex flex-row items-center justify-center gap-12 font-raulmono text-xl text-lightGray">
+        <div className="flex flex-row items-center justify-center gap-12 font-raulmono text-base text-lightGray sm:ml-[60px] sm:text-xl">
           <div>Full Stack Engineer</div>
           <div>|</div>
           <div className="flex flex-row items-center justify-start gap-4">
@@ -38,7 +38,7 @@ const ProjectDetail = () => {
           </div>
         </div>
         <div className="flex flex-row items-center justify-start gap-4">
-          <div className="relative ml-[76px] flex flex-row items-center justify-center gap-2 bg-teal p-1 font-raulroboto text-xl text-lightGray">
+          <div className="relative flex flex-row items-center justify-center gap-2 bg-teal p-1 font-raulroboto text-base text-lightGray sm:ml-[76px] sm:text-xl">
             <div className="text-darkGray">Technologies used</div>
             <div className="text-softGreen">-</div>
             <div className="flex flex-row items-center justify-start gap-2">
@@ -63,7 +63,7 @@ const ProjectDetail = () => {
           </div>
         </div>
         <div className="text-2xl text-lightGray">Summary</div>
-        <div className="max-w-[560px] text-justify text-base leading-[19px]">
+        <div className="max-w-[560px] text-justify text-sm leading-[19px] sm:text-base">
           <span className="text-teal">•</span> The application is built using
           Mojolicious as a framework, MySQL as a database server, infrastructure
           takes full advantage of AWS products and features: elastic beanstalk
@@ -71,19 +71,19 @@ const ProjectDetail = () => {
           the same machines, autoscaling groups and load balancers for dynamic
           load control, SQS and Redis to link different parts of the application
         </div>
-        <div className="max-w-[560px] text-justify text-base leading-[19px]">
+        <div className="max-w-[560px] text-justify text-sm leading-[19px] sm:text-base">
           <span className="text-teal">•</span> On the back-end side I've used
           Perl, MySQL and AWS, On the front-end side I've used React, Nuclear.js
           and Immutable with unit tests using Jest and React Testing Library
         </div>
-        <div className="max-w-[560px] text-justify text-base leading-[19px]">
+        <div className="max-w-[560px] text-justify text-sm leading-[19px] sm:text-base">
           <span className="text-teal">•</span> The architecture and scalability
           of the project was designed with a master - worker / pattern, The
           Email Marketing Platform successfully delivers over 25 million emails
           a day during peak activity times
         </div>
         <div className="text-2xl text-lightGray">Responsabilities</div>
-        <div className="max-w-[560px] text-justify text-base leading-[19px]">
+        <div className="max-w-[560px] text-justify text-sm leading-[19px] sm:text-base">
           Key Responsibilities: Briefly describe the main duties and
           responsibilities you held in the role. Focus on tasks that are
           relevant to the job you're applying for, such as "Designed and
@@ -93,7 +93,7 @@ const ProjectDetail = () => {
         <div className="text-2xl text-lightGray">
           Accomplishments and Impact
         </div>
-        <div className="max-w-[560px] text-justify text-base leading-[19px]">
+        <div className="max-w-[560px] text-justify text-sm leading-[19px] sm:text-base">
           Accomplishments and Impact: Showcase your achievements by mentioning
           specific outcomes, such as "Improved application performance by 30%,"
           "Successfully led a team of 5 developers," or "Contributed to the
@@ -107,7 +107,9 @@ const ProjectDetail = () => {
         }}
       >
         <LeftArrowSvg className="fill-white transition-all duration-200 group-hover:-translate-x-1" />
-        <span className="font-raulmono text-base">Go back to Portfolio.</span>
+        <span className="font-raulmono text-sm sm:text-base">
+          Go back to Portfolio.
+        </span>
       </button>
     </div>
   )

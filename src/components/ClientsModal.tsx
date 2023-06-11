@@ -14,7 +14,7 @@ const ClientsModal = () => {
   return (
     <>
       <div className="z-40 h-3/6 w-3/6 overflow-hidden overflow-y-scroll rounded-md bg-white px-6 py-6 shadow-basic drop-shadow-basic scrollbar-hide">
-        <div className="mt-6 grid grid-flow-row grid-cols-3 place-content-center place-items-center gap-0">
+        <div className="grid-col-1 mt-6 grid grid-flow-row place-content-center place-items-center gap-0 sm:grid-cols-3">
           <a href="https://devnest.ro">
             <DevNestSvg className="h-40 w-40 opacity-80 grayscale transition-all duration-200 hover:opacity-100 hover:grayscale-0" />
           </a>

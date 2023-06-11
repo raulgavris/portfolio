@@ -57,7 +57,7 @@ export const BaseLayout = ({ children }: BaseLayoutProps) => {
 
   return (
     <>
-      <div className="relative m-0 h-full min-h-screen w-screen border-0 p-0 scrollbar-hide">
+      <div className="min-w-screen relative m-0 h-full min-h-screen w-screen border-0 p-0 scrollbar-hide">
         {/* <button
           onClick={() =>
             theme == 'dark' ? setTheme('light') : setTheme('dark')
