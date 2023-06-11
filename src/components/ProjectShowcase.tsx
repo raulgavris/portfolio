@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { OpenSvg, GitSvg, LinkSvg } from './Svg'
 import Link from 'next/link'
+import { useWindowSize } from '@/lib/hooks/useWindowSize'
 
 const ProjectShowcase = ({
   id,
@@ -11,6 +12,7 @@ const ProjectShowcase = ({
   gitLink,
   projectUrl,
 }) => {
+  const [width] = useWindowSize()
   const newDescription = description.split(';')
   const router = useRouter()
 
@@ -33,10 +35,15 @@ const ProjectShowcase = ({
           onClick={() => {
             router.push(`/portfolio/${id}`)
           }}
-          className="mousehover absolute right-16 top-[30%] h-auto max-h-[300px] w-1/2 overflow-hidden rounded-[10px] p-10 text-sm shadow-basic drop-shadow-basic dark:bg-teal dark:text-offWhite"
+          className="mousehover absolute right-16 top-[30%] h-auto max-h-[300px] w-1/2 rounded-[10px] p-10 text-sm shadow-basic drop-shadow-basic dark:bg-teal dark:text-offWhite"
         >
-          {newDescription.map((item) => {
+          {newDescription.map((item, index) => {
             if (item) {
+              if (width < 640) {
+                if (index >= 1) {
+                  return
+                }
+              }
               return (
                 <div key={Math.random()}>
                   <span className="dark:text-lightGray">•</span> {item}
@@ -44,7 +51,7 @@ const ProjectShowcase = ({
               )
             }
           })}
-          <div className="absolute right-6 top-full mt-4 flex w-96 flex-row flex-wrap items-center justify-end gap-10 text-xs dark:text-lightGray">
+          <div className="absolute right-6 top-full z-[999] mt-4 flex w-96 flex-row flex-wrap items-center justify-end gap-20 text-xs dark:text-lightGray">
             {technologies.map((item) => {
               return (
                 <div
@@ -55,7 +62,7 @@ const ProjectShowcase = ({
                 </div>
               )
             })}
-            <div className="absolute right-0 top-10 flex flex-row gap-10 text-lg dark:text-lightGray">
+            <div className="absolute right-0 top-10 z-[999] flex flex-row gap-20 text-lg dark:text-lightGray">
               <a
                 href={gitLink}
                 className="mousehover opacity-90 drop-shadow-basic transition-all duration-200 hover:scale-125 hover:cursor-pointer hover:opacity-100 active:scale-100"
