@@ -62,7 +62,7 @@ const ProjectShowcase = ({
                 </div>
               )
             })}
-            <div className="absolute right-0 top-10 z-[999] flex flex-row gap-20 text-lg dark:text-lightGray">
+            <div className="absolute right-0 top-10 z-[999] flex flex-row gap-10 text-lg dark:text-lightGray">
               <a
                 href={gitLink}
                 className="mousehover opacity-90 drop-shadow-basic transition-all duration-200 hover:scale-125 hover:cursor-pointer hover:opacity-100 active:scale-100"
