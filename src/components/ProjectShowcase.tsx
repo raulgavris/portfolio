@@ -51,7 +51,7 @@ const ProjectShowcase = ({
               )
             }
           })}
-          <div className="absolute right-6 top-full z-[999] mt-4 flex w-96 flex-row flex-wrap items-center justify-end gap-20 text-xs dark:text-lightGray">
+          <div className="absolute right-6 top-full z-[999] mt-4 flex w-96 flex-row flex-wrap items-center justify-end gap-10 text-xs dark:text-lightGray">
             {technologies.map((item) => {
               return (
                 <div
