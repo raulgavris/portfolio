@@ -26,7 +26,7 @@ const ProjectShowcase = ({
           <a className="mousehover h-full w-full" href={projectUrl}>
             <img
               alt="imageshowcase"
-              className="h-full w-full rounded-[10px] shadow-basic drop-shadow-basic grayscale transition-all duration-200 hover:grayscale-0"
+              className="h-[200px] w-[200px] rounded-[10px] shadow-basic drop-shadow-basic grayscale transition-all duration-200 hover:grayscale-0 sm:h-full sm:w-full"
               src={imageUrl}
             />
           </a>
